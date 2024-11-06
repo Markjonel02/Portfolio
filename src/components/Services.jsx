@@ -1,44 +1,42 @@
-import { Box, Text, Icon, VStack, Flex } from "@chakra-ui/react";
+import { Box, Text, VStack, Flex } from "@chakra-ui/react";
 import { useState } from "react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 const services = [
   {
     id: 1,
-    title: "Web Application and Development",
+    title: "Web Development",
     description:
-      "Building dynamic and interactive web applications using modern technologies like React, Angular, or Vue.js.",
+      "Building dynamic and interactive web applications using modern technologies like React, typescript, or Vue.js, Php, Django, Html5, Tailwind Css, Bootstrap, Chakra ui.",
   },
   {
     id: 2,
-    title: "UI/UX Design",
+    title: "Responsive Design",
     description:
-      "lorem ipsum dolor sit amet, consectetur adip nonum  soci cup lorem ipsum dolor lorem ipsum dolor",
+      "Ensuring that websites are fully functional and visually appealing on all devices, including desktops, tablets, and smartphones",
   },
   {
     id: 3,
-    title: "Web Design",
+    title: "Maintenance and  Support",
     description:
-      "lorem ipsum dolor sit amet, consectetur adip nonum  soci cup lorem ipsum dolor lorem ipsum dolor",
+      "Providing ongoing website maintenance, updates, and technical support to ensure optimal performance and security.",
   },
   {
     id: 4,
-    title: "App Design",
+    title: "E-commerce ",
     description:
-      "lorem ipsum dolor sit amet, consectetur adip nonum  soci cup lorem ipsum dolor lorem ipsum dolor",
+      "Setting up and customizing WooCommerce stores, including product listings, payment gateways, and inventory management.",
   },
 ];
+
 const Services = () => {
-  const [activeServiceId, setActiveServiceId] = useState(null);
+  const [activeServiceId, setActiveServiceId] = useState(1); // Set the initial active service to 1
 
   const handleToggle = (id) => {
     setActiveServiceId(activeServiceId === id ? null : id); // Toggle active state
   };
-  /*   const gradient = {
-    bgGradient: "linear(to-r, #b18af9, #b18af9, #4b288b, #352063, #1f143d)",
-  }; */
+
   return (
-    <Box textAlign="center" mt={20}>
+    <Box textAlign="center" mt={20} mb={20}>
       <Box className="title">
         <Text
           fontSize={{
@@ -91,7 +89,12 @@ const Services = () => {
                   <Text fontSize="2xl" fontWeight="bold" mr={3}>
                     {service.id < 10 ? `0${service.id}` : service.id}
                   </Text>
-                  <Text fontSize="2xl" fontWeight="bold">
+                  <Text
+                    fontSize="2xl"
+                    fontWeight="bold"
+                    wordBreak="1"
+                    width="300px"
+                  >
                     {service.title}
                   </Text>
                 </Flex>
@@ -101,13 +104,12 @@ const Services = () => {
                   color={
                     activeServiceId === service.id ? "white" : "purple.700"
                   } // Change description color when active
-                  minW={{ base: "100%", md: "60%" }}
+                  minW={{ base: "80%", md: "60%" }}
                   textAlign="left"
                   whiteSpace="normal"
                 >
                   {service.description}
                 </Text>
-                <Icon as={ArrowForwardIcon} boxSize={6} ml={8} />
               </Flex>
             </Box>
           ))}

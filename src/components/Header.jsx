@@ -14,7 +14,8 @@ import {
   FaGithub,
   FaDownload,
 } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import gsap from "gsap"; // Import GSAP
 import Mark from "../assets/images/Mark.png";
 import Greet from "../assets/images/Greet.svg";
 import StatsSection from "./StatsSection";
@@ -26,22 +27,43 @@ const Header = () => {
     lg: true,
     xl: true,
   });
+
   const [rotate, setRotate] = useState(7);
   const [border, setBorder] = useState("none");
+
+  // Pulse Keyframe for Animation
   const pulse = keyframes`
-  0% {
-    transform: scale(1);
-    opacity: 0.2;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.2;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.2;
-  }
-`;
+    0% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.2;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+  `;
+
+  // GSAP Scroll Effect for Parallax
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      // Parallax effect
+      gsap.to(".parallax-image", {
+        y: scrollY * 0.1, // Move the image based on the scroll
+        ease: "power2.out", // Smooth easing
+        duration: 0.2,
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <Box
@@ -80,8 +102,8 @@ const Header = () => {
             fontWeight="bold"
             lineHeight="1.1"
             mt={2}
-            bgGradient="linear(to-r, purple.500, purple.700)" // Gradient from left to right
-            bgClip="text" // Clip the background gradient to the text
+            bgGradient="linear(to-r, purple.500, purple.700)"
+            bgClip="text"
             zIndex={2}
           >
             Web Developer
@@ -104,19 +126,19 @@ const Header = () => {
             display="flex"
             flexDirection={{ base: "column", sm: "row" }}
             gap={4}
-            alignItems="center" // Center items vertically
+            alignItems="center"
           >
             <Button
               variant="outline"
               colorScheme="purple"
               rightIcon={<FaDownload />}
-              size="xl" // Set size to 'xl' for a larger button
+              size="xl"
               onClick={() => window.open("link-to-your-cv", "_blank")}
               borderRadius="full"
-              px={{ base: "20px", md: "40px" }} // Increase padding for width
-              py={{ base: "20px", md: "25px" }} // Increase padding for height
-              fontSize={{ base: "lg", md: "xl" }} // Use larger font size
-              _hover={{ bg: "purple.500", color: "white" }} // Change background and text color on hover
+              px={{ base: "20px", md: "40px" }}
+              py={{ base: "20px", md: "25px" }}
+              fontSize={{ base: "lg", md: "xl" }}
+              _hover={{ bg: "purple.500", color: "white" }}
             >
               Download CV
             </Button>
@@ -135,7 +157,7 @@ const Header = () => {
               </Box>
             )}
 
-            {/* Wrap social media buttons in a Box for alignment */}
+            {/* Social Media Buttons */}
             <Box display="flex" gap={2} justifyContent="center">
               {[FaFacebook, FaLinkedin, FaDribbble, FaGithub].map(
                 (IconComponent, index) => (
@@ -153,7 +175,7 @@ const Header = () => {
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
-                    _hover={{ bg: "purple.500", color: "white" }} // Change background and text color on hover
+                    _hover={{ bg: "purple.500", color: "white" }}
                   >
                     <Icon as={IconComponent} boxSize={6} />
                   </Button>
@@ -163,7 +185,7 @@ const Header = () => {
           </Box>
         </Box>
 
-        {/* Right Side Image */}
+        {/* Right Side Image with Parallax Effect */}
         <Box
           flex="1"
           display="flex"
@@ -173,6 +195,7 @@ const Header = () => {
           order={{ base: 2, md: 1 }}
         >
           <Image
+            className="parallax-image" // Add a class to target with GSAP
             src={Mark}
             alt="Gerold"
             mt={8}
@@ -181,17 +204,19 @@ const Header = () => {
             objectFit="cover"
             boxShadow="inset 0 0 10px purple.700"
             borderRadius="20px"
-            transform={`rotate(${rotate}deg)`}
-            transition="transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), border 0.3s ease"
+            style={{
+              transform: `rotate(${rotate}deg)`,
+              transition: "transform 0.2s ease-out",
+            }}
             border={border}
-            borderColor="purple.300" // Adjust the border color as desired
+            borderColor="purple.300"
             onMouseEnter={() => {
               setRotate(0);
-              setBorder("3px solid"); // Add a border on hover
+              setBorder("3px solid");
             }}
             onMouseLeave={() => {
               setRotate(7);
-              setBorder("none"); // Remove the border when mouse leaves
+              setBorder("none");
             }}
           />
         </Box>

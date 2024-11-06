@@ -1,9 +1,9 @@
 import ResponsiveNavbar from "./components/Nav";
 import Header from "./components/Header";
-
 import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Services from "./components/Services";
+import Works from "./components/Works";
 const MotionBox = motion(Box);
 const App = () => {
   return (
@@ -31,6 +31,9 @@ const App = () => {
           <Services />
         </Box>
         {/* Add the Services component with mt="auto" to push it to the bottom */}
+        <Box mt="auto">
+          <Works />
+        </Box>
       </Box>
 
       <footer></footer>
