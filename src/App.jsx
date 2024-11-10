@@ -1,14 +1,17 @@
-import ResponsiveNavbar from "./components/Nav";
+import ResponsiveNavbar from "./components/AnimNav";
 import Header from "./components/Header";
 import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Services from "./components/Services";
 import Works from "./components/Works";
+import AnimNav from "./components/Navigation";
+import Resume from "./components/Resume";
 const MotionBox = motion(Box);
 const App = () => {
   return (
     <>
       <header>
+        <AnimNav />
         <ResponsiveNavbar />
       </header>
 
@@ -21,9 +24,9 @@ const App = () => {
         <MotionBox
           bgGradient="linear(to-r, #ffffff, #e9e1fcff)"
           flex="1"
-          initial={{ opacity: 0 }} // Start with opacity 0
-          animate={{ opacity: 1 }} // Animate to opacity 1
-          transition={{ duration: 0.5 }} // Duration of the animation
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
           <Header />
         </MotionBox>
@@ -33,6 +36,9 @@ const App = () => {
         {/* Add the Services component with mt="auto" to push it to the bottom */}
         <Box mt="auto">
           <Works />
+        </Box>
+        <Box mt="auto">
+          <Resume />
         </Box>
       </Box>
 
