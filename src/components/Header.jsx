@@ -147,7 +147,7 @@ const Header = () => {
               <Box
                 position="absolute"
                 zIndex={0}
-                top="20%"
+                top="10%"
                 left="32%"
                 transform="translate(-70%, -50%)"
                 opacity={0.5}
