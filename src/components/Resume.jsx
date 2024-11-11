@@ -43,16 +43,17 @@ const Resume = () => {
             <Box
               key={idx}
               p={8} // Increased padding for larger card size
+              bg={item.active ? "linear-gradient(90deg, #a855f7, #7c3aed)" : "white"}
+              color={item.active ? "white" : "black"}
               boxShadow="xl" // Slightly stronger shadow
               borderRadius="lg"
               transition="background 0.3s, color 0.3s"
-              width="100%"
-              role="group"
               _hover={{
-                bgGradient:
-                  "linear(to-r, #693cc2ff, #693cc2ff, #693cc2ff, #352063, #1f143d)",
+                bg: "linear-gradient(90deg, #a855f7, #7c3aed)",
                 color: "white",
               }}
+              width="100%"
+              role="group"
             >
               <Text
                 fontSize="lg"
@@ -144,4 +145,3 @@ const Resume = () => {
 };
 
 export default Resume;
-//add fading animation for hover
