@@ -24,15 +24,15 @@ const Resume = () => {
           </Heading>
           {[
             {
-              date: "2022 - Present",
-              title: "LEAD DEVELOPER",
-              place: "Blockdots, London",
+              date: "2024 - Present",
+              title: "Jr. WEB DEVELOPER",
+              place: "Santolan Pasig, City",
               active: true,
             },
             {
-              date: "2021 - 2022",
-              title: "FULL STACK WEB DEVELOPER",
-              place: "Parsons, The New School",
+              date: "2022 - 2023",
+              title: "FREELANCE WEB DEVELOPER",
+              place: "Sta.Rosa,Laguna",
             },
             {
               date: "2020 - 2021",
@@ -42,14 +42,15 @@ const Resume = () => {
           ].map((item, idx) => (
             <Box
               key={idx}
+              bg="white"
               p={8} // Increased padding for larger card size
-              bg={item.active ? "linear-gradient(90deg, #a855f7, #7c3aed)" : "white"}
-              color={item.active ? "white" : "black"}
+              color={"black"}
               boxShadow="xl" // Slightly stronger shadow
               borderRadius="lg"
               transition="background 0.3s, color 0.3s"
               _hover={{
-                bg: "linear-gradient(90deg, #a855f7, #7c3aed)",
+                bgGradient:
+                  "linear(to-r,#7f3bedff , #693cc2ff,#352063, #1f143d)",
                 color: "white",
               }}
               width="100%"
@@ -57,7 +58,7 @@ const Resume = () => {
             >
               <Text
                 fontSize="lg"
-                color={item.active ? "whiteAlpha.800" : "purple.500"}
+                color={"purple.500"}
                 _groupHover={{ color: "white" }}
               >
                 {item.date}
@@ -82,7 +83,7 @@ const Resume = () => {
             size="2xl"
             color="purple.700"
             mb={10}
-            bgGradient="linear(to-r, #b18af9, #b18af9, hoverColor, hoverColor, hoverColor)"
+            bgGradient="linear(to-r,#b18af9, #b18af9, hoverColor, hoverColor, hoverColor)"
             bgClip="text"
           >
             <Box as="span" mr={2} role="img" aria-label="graduation cap"></Box>
@@ -90,19 +91,19 @@ const Resume = () => {
           </Heading>
           {[
             {
-              date: "2020 - 2023",
-              title: "PROGRAMMING COURSE",
-              place: "Harvard University",
+              date: "2020-2024",
+              title: "BS INFORMATION TECHNOLOGY",
+              place: "URS Binangonan",
             },
             {
-              date: "2016 - 2020",
-              title: "GRAPHIC DESIGN COURSE",
-              place: "University of Denmark",
+              date: "2018-2020",
+              title: "INFORMATION TECHNOLOGY",
+              place: "AMA SHS",
             },
             {
-              date: "2012 - 2015",
+              date: "2014-2018",
               title: "WEB DESIGN COURSE",
-              place: "University of California",
+              place: "MISMNHS",
             },
           ].map((item, idx) => (
             <Box
@@ -113,7 +114,8 @@ const Resume = () => {
               borderRadius="lg"
               transition="background 0.3s, color 0.3s"
               _hover={{
-                bgGradient: "linear(to-r, #693cc2ff, #352063, #1f143d)",
+                bgGradient:
+                  "linear(to-r,#7f3bedff , #693cc2ff,#352063, #1f143d)",
                 color: "white",
               }}
               width="100%"
