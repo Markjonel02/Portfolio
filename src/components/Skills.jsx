@@ -1,86 +1,100 @@
-import { Box, Text, VStack, Image, HStack } from "@chakra-ui/react";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import React from "react";
+import { Box, Flex, Text, keyframes, Icon, VStack } from "@chakra-ui/react";
+import { TiHtml5, TiCss3 } from "react-icons/ti";
+import { RiJavascriptFill } from "react-icons/ri";
 import { FaWordpress } from "react-icons/fa6";
-import { TbBrandJavascript } from "react-icons/tb";
 import { FaReact } from "react-icons/fa";
-import { BiLogoTailwindCss } from "react-icons/bi";
 import { BsBootstrapFill } from "react-icons/bs";
-import { ImHtmlFive2 } from "react-icons/im";
-import { SiChakraui } from "react-icons/si";
-// Define the skills data
-const skills = [
-  { name: "Tailwind Css", icon: <BiLogoTailwindCss />, percentage: 92 },
-  { name: "Bootstrap", icon: <BsBootstrapFill />, percentage: 80 },
-  { name: "Html5", icon: < ImHtmlFive2/>, percentage: 85 },
-  { name: "Chakraui", icon: < />, percentage: 85 },
-  { name: "", icon: < />, percentage: 85 },
-  { name: "", icon: < />, percentage: 85 },
+import { BiLogoTailwindCss } from "react-icons/bi";
+import { SiChakraui, SiTypescript } from "react-icons/si";
 
-  { name: "WordPress", icon: <FaWordpress />, percentage: 99 },
-  { name: "React", icon: <FaReact />, percentage: 89 },
-  { name: "JavaScript", icon: <TbBrandJavascript />, percentage: 93 },
-];
+const scrolling = keyframes`
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% / 3)); }
+`;
 
-export const Skills = ({ skill }) => {
+const SkillsSection = () => {
+  const skills = [
+    { name: "Html5", icon: TiHtml5, color: "#E34F26" },
+    { name: "Css3", icon: TiCss3, color: "#1572B6" },
+    { name: "JavaScript", icon: RiJavascriptFill, color: "#F7DF1E" },
+    { name: "WordPress", icon: FaWordpress, color: "#21759B" },
+    { name: "React", icon: FaReact, color: "#61DAFB" },
+    { name: "Bootstrap", icon: BsBootstrapFill, color: "#7952B3" },
+    { name: "TailwindCss", icon: BiLogoTailwindCss, color: "#06B6D4" },
+    { name: "ChakraUI", icon: SiChakraui, color: "#319795" },
+    { name: "Typescript", icon: SiTypescript, color: "#3178C6" },
+  ];
+
+  const repeatedSkills = [...skills, ...skills, ...skills];
+
   return (
-    <VStack
-      w="150px"
-      h="150px"
-      p="4"
-      bg="gray.100"
-      borderRadius="lg"
-      transition="all 0.3s ease"
-      _hover={{ bg: "purple.800", color: "white" }}
-    >
-      <Image src={skill.icon} boxSize="50px" alt={`${skill.name} icon`} />
-      <Text fontSize="2xl" fontWeight="bold">
-        {skill.percentage}%
-      </Text>
-      <Text fontSize="md">{skill.name}</Text>
-    </VStack>
+    <Box overflow="hidden" py={8} bg="gray.50" mb={20} mt={20}>
+      <Box display="flex" flexDirection="column" alignItems="center" mb={10}>
+        <Text
+          fontSize={{ base: "5xl", sm: "2xl", md: "2xl", lg: "2xl", xl: "5xl" }}
+          fontWeight="bold"
+          bgGradient="linear(to-r, #b18af9, #b18af9, #4b288b, #352063, #1f143d)"
+          bgClip="text" // Clip the background gradient to the text
+          zIndex={2}
+        >
+          My Skills
+        </Text>
+        <Text fontSize="md" color="gray.600" fontWeight={400}>
+          Here are some of the technologies I've worked with
+        </Text>
+      </Box>
+      <Flex
+        animation={`${scrolling} 30s linear infinite`}
+        _hover={{ animationPlayState: "paused" }}
+        width="fit-content"
+        gap={10}
+      >
+        {repeatedSkills.map((skill, index) => (
+          <VStack
+            key={`${skill.name}-${index}`}
+            bg="#f6f2fcff"
+            p={8}
+            borderRadius="xl"
+            width="200px"
+            transition="all 0.3s ease"
+            shadow="md"
+            spacing={4}
+            mb={10}
+            cursor="pointer"
+            _hover={{
+              bg: "purple.900",
+              shadow: "lg",
+              color: "white",
+            }}
+            className="group"
+          >
+            <Icon
+              as={skill.icon}
+              boxSize={10}
+              color="gray.600"
+              filter="grayscale(100%)"
+              transition="all 0.3s ease"
+              _groupHover={{
+                transform: "scale(1.2)",
+                filter: "grayscale(0%)",
+                color: skill.color,
+              }}
+            />
+            <Text
+              fontSize="lg"
+              color="gray.700"
+              _groupHover={{
+                color: "white",
+              }}
+            >
+              {skill.name}
+            </Text>
+          </VStack>
+        ))}
+      </Flex>
+    </Box>
   );
 };
 
-export default function SkillsCarousel() {
-  const carouselRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const skillCards = gsap.utils.toArray(".skill-card");
-      const anim = gsap.to(skillCards, {
-        xPercent: -100 * (skillCards.length / 2),
-        ease: "none",
-        duration: 30,
-        repeat: -1,
-        modifiers: {
-          xPercent: gsap.utils.wrap(-100, 0),
-        },
-      });
-
-      const container = carouselRef.current;
-
-      // Pause animation on hover
-      container.addEventListener("mouseenter", () => anim.pause());
-      container.addEventListener("mouseleave", () => anim.play());
-
-      return () => {
-        container.removeEventListener("mouseenter", () => anim.pause());
-        container.removeEventListener("mouseleave", () => anim.play());
-        ctx.revert();
-      };
-    }, carouselRef);
-  }, []);
-
-  return (
-    <Box ref={carouselRef} overflow="hidden" whiteSpace="nowrap">
-      <HStack spacing="8" className="skill-cards-container">
-        {skills.concat(skills).map((skill, index) => (
-          <Box key={index} className="skill-card">
-            <Skills skill={skill} />
-          </Box>
-        ))}
-      </HStack>
-    </Box>
-  );
-}
+export default SkillsSection;

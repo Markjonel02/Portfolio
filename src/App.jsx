@@ -6,6 +6,7 @@ import Services from "./components/Services";
 import Works from "./components/Works";
 import AnimNav from "./components/Navigation";
 import Resume from "./components/Resume";
+import SkillsSection from "./components/Skills";
 const MotionBox = motion(Box);
 const App = () => {
   return (
@@ -39,6 +40,9 @@ const App = () => {
         </Box>
         <Box mt="auto">
           <Resume />
+        </Box>
+        <Box mt="auto" >
+          <SkillsSection />
         </Box>
       </Box>
 
