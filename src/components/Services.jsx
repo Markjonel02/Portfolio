@@ -58,7 +58,14 @@ const Services = () => {
         <Text fontSize="lg" mt={4} color="gray.600">
           I offer a wide range of services to help you achieve your goals.
         </Text>
-        <VStack spacing={4} align="stretch" maxW="80%" mx="auto" mt={10}>
+        <VStack
+          spacing={5}
+          align="stretch"
+          maxW="100%"
+          mx="auto"
+          mt={10}
+          marginInline={{ base: "10", md: "20" }}
+        >
           {services.map((service) => (
             <Box
               key={service.id}
@@ -104,7 +111,6 @@ const Services = () => {
                   color={
                     activeServiceId === service.id ? "white" : "purple.700"
                   } // Change description color when active
-                  minW={{ base: "80%", md: "60%" }}
                   textAlign="left"
                   whiteSpace="normal"
                 >

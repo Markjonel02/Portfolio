@@ -32,18 +32,18 @@ const Resume = () => {
             {
               date: "2024 - Present",
               title: "Jr. WEB DEVELOPER",
-              place: "Santolan Pasig, City",
+              company: "Bulleseye Solutions, Santolan, Pasig City",
               active: true,
             },
             {
               date: "2022 - 2023",
               title: "FREELANCE WEB DEVELOPER",
-              place: "Sta.Rosa, Laguna",
+              company: "NDD TECH, Sta.Rosa, Laguna",
             },
             {
               date: "2020 - 2021",
-              title: "UI DESIGNER",
-              place: "House of Life, Leeds",
+              title: "WORDPRESS DEVELOPER",
+              company: "",
             },
           ].map((item, idx) => (
             <Box
@@ -80,7 +80,7 @@ const Resume = () => {
                 fontSize={{ base: "sm", md: "lg" }} // Responsive text size
                 _groupHover={{ color: "white" }}
               >
-                {item.place}
+                {item.company}
               </Text>
             </Box>
           ))}

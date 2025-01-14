@@ -7,6 +7,7 @@ import Works from "./components/Works";
 import AnimNav from "./components/Navigation";
 import Resume from "./components/Resume";
 import SkillsSection from "./components/Skills";
+import Contact from "./components/Contact";
 const MotionBox = motion(Box);
 const App = () => {
   return (
@@ -41,8 +42,11 @@ const App = () => {
         <Box mt="auto">
           <Resume />
         </Box>
-        <Box mt="auto" >
+        <Box mt="auto">
           <SkillsSection />
+        </Box>
+        <Box mt="auto">
+          <Contact />
         </Box>
       </Box>
 

@@ -14,8 +14,8 @@ import {
   FaGithub,
   FaDownload,
 } from "react-icons/fa";
-import { useState, useEffect } from "react";
-import gsap from "gsap"; // Import GSAP
+import { useState } from "react";
+
 import Mark from "../assets/images/Mark.png";
 import Greet from "../assets/images/Greet.svg";
 import StatsSection from "./StatsSection";
@@ -48,21 +48,6 @@ const Header = () => {
   `;
 
   // GSAP Scroll Effect for Parallax
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-
-      // Parallax effect
-      gsap.to(".parallax-image", {
-        y: scrollY * 0.1, // Move the image based on the scroll
-        ease: "power2.out", // Smooth easing
-        duration: 0.2,
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <>
@@ -192,15 +177,15 @@ const Header = () => {
           justifyContent="center"
           alignItems="center"
           px={{ base: 4, md: 0 }}
-          order={{ base: 2, md: 1 }}
+          order={{ base: 2, md: 1 }} // Image moves to the bottom for smaller screens
         >
           <Image
-            className="parallax-image" // Add a class to target with GSAP
+            className="parallax-image"
             src={Mark}
-            alt="Gerold"
+            alt="Mark"
             mt={8}
-            boxSize={{ base: "300px", md: "300px", lg: "400px", xl: "450px" }}
-            ml={{ base: "60px", md: "60px" }}
+            boxSize={{ base: "350px", md: "300px", lg: "400px", xl: "450px" }} // Adjust the size dynamically
+            ml={{ base: 0, md: "60px" }}
             objectFit="cover"
             boxShadow="inset 0 0 10px purple.700"
             borderRadius="20px"
