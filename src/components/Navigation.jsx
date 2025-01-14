@@ -59,47 +59,42 @@ export default function ResponsiveNavbar() {
         <HStack spacing={6}>
           {isDesktop ? (
             <HStack spacing={[4, 6, 8]} as="nav">
-              {[
-                "Services",
-                "Works",
-                "Resume",
-                "Skills",
-                "Testimonials",
-                "Contact",
-              ].map((text) => (
-                <Box
-                  key={text}
-                  position="relative"
-                  _hover={{
-                    "&:after": {
-                      transform: "scaleX(1)",
-                    },
-                  }}
-                  _after={{
-                    content: '""',
-                    position: "absolute",
-                    width: "100%",
-                    height: "2px",
-                    bottom: "-2px",
-                    left: 0,
-                    backgroundColor: "#6c63ff",
-                    transform: "scaleX(0)",
-                    transformOrigin: "left",
-                    transition: "transform 0.3s ease",
-                  }}
-                >
-                  <Link
-                    href={`#${text.toLowerCase()}`}
-                    fontSize={["sm", "md", "lg"]}
-                    fontWeight={500}
-                    color="purple.700"
-                    textDecoration="none"
-                    _hover={{ textDecoration: "none" }}
+              {["Services", "Works", "Resume", "Skills", "Contact"].map(
+                (text) => (
+                  <Box
+                    key={text}
+                    position="relative"
+                    _hover={{
+                      "&:after": {
+                        transform: "scaleX(1)",
+                      },
+                    }}
+                    _after={{
+                      content: '""',
+                      position: "absolute",
+                      width: "100%",
+                      height: "2px",
+                      bottom: "-2px",
+                      left: 0,
+                      backgroundColor: "#6c63ff",
+                      transform: "scaleX(0)",
+                      transformOrigin: "left",
+                      transition: "transform 0.3s ease",
+                    }}
                   >
-                    {text}
-                  </Link>
-                </Box>
-              ))}
+                    <Link
+                      href={`#${text.toLowerCase()}`}
+                      fontSize={["sm", "md", "lg"]}
+                      fontWeight={500}
+                      color="purple.700"
+                      textDecoration="none"
+                      _hover={{ textDecoration: "none" }}
+                    >
+                      {text}
+                    </Link>
+                  </Box>
+                )
+              )}
             </HStack>
           ) : (
             <IconButton

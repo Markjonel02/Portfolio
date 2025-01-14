@@ -21,6 +21,11 @@ import Greet from "../assets/images/Greet.svg";
 import StatsSection from "./StatsSection";
 
 const Header = () => {
+  const socialLinks = [
+    { icon: FaFacebook, link: "https://www.facebook.com/Markjonel02" },
+    { icon: FaLinkedin, link: "https://linkedin.com/in/yourprofile" },
+    { icon: FaGithub, link: "https://github.com/Markjonel02" },
+  ];
   const shrink = useBreakpointValue({
     base: false,
     md: true,
@@ -144,28 +149,24 @@ const Header = () => {
 
             {/* Social Media Buttons */}
             <Box display="flex" gap={2} justifyContent="center">
-              {[FaFacebook, FaLinkedin, FaDribbble, FaGithub].map(
-                (IconComponent, index) => (
-                  <Button
-                    key={index}
-                    variant="outline"
-                    colorScheme="purple"
-                    size="lg"
-                    onClick={() =>
-                      window.open("https://social-link.com", "_blank")
-                    }
-                    borderRadius="full"
-                    width="50px"
-                    height="50px"
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                    _hover={{ bg: "purple.500", color: "white" }}
-                  >
-                    <Icon as={IconComponent} boxSize={6} />
-                  </Button>
-                )
-              )}
+              {socialLinks.map(({ icon: IconComponent, link }, index) => (
+                <Button
+                  key={index}
+                  variant="outline"
+                  colorScheme="purple"
+                  size="lg"
+                  onClick={() => window.open(link, "_blank")}
+                  borderRadius="full"
+                  width="50px"
+                  height="50px"
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  _hover={{ bg: "purple.500", color: "white" }}
+                >
+                  <Icon as={IconComponent} boxSize={6} />
+                </Button>
+              ))}
             </Box>
           </Box>
         </Box>

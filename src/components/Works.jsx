@@ -46,6 +46,7 @@ const Works = () => {
       alignItems="center"
       mt={20}
       mb={20}
+      id="works"
     >
       {/* Header */}
       <Text

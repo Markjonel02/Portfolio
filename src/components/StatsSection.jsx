@@ -5,10 +5,10 @@ export default function StatsSection() {
   const labelSize = useBreakpointValue({ base: "md", md: "lg", lg: "xl" });
 
   const stats = [
-    { value: "14", label: "Years of Experience" },
+    { value: "2", label: "Years of Experience" },
     { value: "50+", label: "Project Completed" },
-    { value: "1.5K", label: "Happy Clients" },
-    { value: "14", label: "Years of Experience" },
+    { value: "5", label: "Happy Clients" },
+  
   ];
 
   return (

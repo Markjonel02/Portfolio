@@ -9,6 +9,7 @@ const Resume = () => {
       px={{ base: 4, sm: 6, md: 10 }} // Responsive padding
       display="flex"
       justifyContent="center"
+      id="resume"
     >
       <Grid
         templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}

@@ -103,9 +103,9 @@ const ContactForm = () => {
               height="50px"
               focusBorderColor="purple.500"
             >
-              <option>Option 1</option>
-              <option>Option 2</option>
-              <option>Option 3</option>
+              <option>WEB DEVELOPMENT</option>
+              <option>WORDPRESS</option>
+              <option>ECOMMERCE</option>
             </Select>
           </FormControl>
           <FormControl id="message">
@@ -182,7 +182,7 @@ const ContactForm = () => {
                 Address
               </Text>
               <Text fontSize="md" color="gray.800">
-                Warne Park Street Pine, FL 33157, New York
+                Sta.Ana, Taytay Rizal
               </Text>
             </VStack>
           </HStack>

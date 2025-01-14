@@ -52,6 +52,7 @@ const Services = () => {
           bgGradient="linear(to-r, #b18af9, #b18af9, #4b288b, #352063, #1f143d)"
           bgClip="text" // Clip the background gradient to the text
           zIndex={2}
+          id="services"
         >
           My Quality Services
         </Text>

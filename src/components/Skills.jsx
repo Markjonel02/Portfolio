@@ -29,7 +29,7 @@ const SkillsSection = () => {
   const repeatedSkills = [...skills, ...skills, ...skills];
 
   return (
-    <Box overflow="hidden" py={8} bg="gray.50" mb={20} mt={20}>
+    <Box overflow="hidden" py={8} bg="gray.50" mb={20} mt={20} id="skills">
       <Box display="flex" flexDirection="column" alignItems="center" mb={10}>
         <Text
           fontSize={{ base: "5xl", sm: "2xl", md: "2xl", lg: "2xl", xl: "5xl" }}
