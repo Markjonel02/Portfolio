@@ -19,7 +19,7 @@ import { useState } from "react";
 import Mark from "../assets/images/Mark.png";
 import Greet from "../assets/images/Greet.svg";
 import StatsSection from "./StatsSection";
-
+import pdf from "../assets/pdf/Resume- Mark Jonel Relles.pdf";
 const Header = () => {
   const socialLinks = [
     { icon: FaFacebook, link: "https://www.facebook.com/Markjonel02" },
@@ -123,14 +123,15 @@ const Header = () => {
               colorScheme="purple"
               rightIcon={<FaDownload />}
               size="xl"
-              onClick={() => window.open("link-to-your-cv", "_blank")}
               borderRadius="full"
               px={{ base: "20px", md: "40px" }}
               py={{ base: "20px", md: "25px" }}
               fontSize={{ base: "lg", md: "xl" }}
               _hover={{ bg: "purple.500", color: "white" }}
             >
-              Download CV
+              <a href={pdf} download="Resume-Relles Markjondel D. ">
+                Download CV
+              </a>
             </Button>
 
             {shrink && (
@@ -179,6 +180,8 @@ const Header = () => {
           alignItems="center"
           px={{ base: 4, md: 0 }}
           order={{ base: 2, md: 1 }} // Image moves to the bottom for smaller screens
+          data-aos="fade-left"
+          data-aos-durations="300ms"
         >
           <Image
             className="parallax-image"

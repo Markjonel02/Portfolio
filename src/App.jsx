@@ -8,8 +8,25 @@ import AnimNav from "./components/Navigation";
 import Resume from "./components/Resume";
 import SkillsSection from "./components/Skills";
 import Contact from "./components/Contact";
+/* import Aos from "aos"; */
+
 const MotionBox = motion(Box);
+import { useEffect } from "react";
+
 const App = () => {
+  useEffect(() => {
+    /* 
+    Aos.init({
+      duration: 1000, 
+      once: true, 
+    });
+
+ 
+    return () => {
+      Aos.refresh();
+    }; */
+  }, []);
+
   return (
     <>
       <header>
@@ -32,20 +49,24 @@ const App = () => {
         >
           <Header />
         </MotionBox>
-        <Box mt="auto" bg="purple.50">
+
+        <Box mt="auto" bg="purple.50" data-aos="fade-up">
           <Services />
         </Box>
-        {/* Add the Services component with mt="auto" to push it to the bottom */}
-        <Box mt="auto">
+
+        <Box mt="auto" data-aos="fade-up">
           <Works />
         </Box>
-        <Box mt="auto">
+
+        <Box mt="auto" data-aos="fade-up">
           <Resume />
         </Box>
-        <Box mt="auto">
+
+        <Box mt="auto" data-aos="fade-up">
           <SkillsSection />
         </Box>
-        <Box mt="auto">
+
+        <Box mt="auto" data-aos="fade-up">
           <Contact />
         </Box>
       </Box>

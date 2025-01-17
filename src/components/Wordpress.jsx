@@ -9,13 +9,10 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
-import pandora from "../assets/images/pandora.png";
-import strix from "../assets/images/strix.png";
-import sweetpaw from "../assets/images/sweetpaw.png";
-import freelance from "../assets/images/Freelance.png";
 import ltd from "../assets/images/Love to dream.png";
-import library from "../assets/images/library.png";
-import ndd from "../assets/images/ndd.png";
+import mamas from "../assets/images/mamas.png";
+import wonderhome from "../assets/images/wonderhome.png";
+
 // BlogCard Component
 const BlogCard = ({ post }) => {
   return (
@@ -88,6 +85,22 @@ const AllProj = () => {
       date: "May 10, 2024",
       title: "Love to dream",
       image: ltd,
+      comments: "No Comments",
+    },
+    {
+      category: "WORDPRESS",
+      date: "May 10, 2024",
+      title: "MAMAS & PAPAS",
+      image: mamas,
+      links: "https://mamasandpapas.ph/",
+      comments: "No Comments",
+    },
+    {
+      category: "WORDPRESS",
+      date: "May 10, 2024",
+      title: "WONDERHOME PH",
+      image: wonderhome,
+      links: "https://wonderhomenaturals.com/",
       comments: "No Comments",
     },
   ];

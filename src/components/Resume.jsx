@@ -33,7 +33,7 @@ const Resume = () => {
             {
               date: "2024 - Present",
               title: "Jr. WEB DEVELOPER",
-              company: "Bulleseye Solutions, Santolan, Pasig City",
+              company: "Bullseye Solutions, Santolan, Pasig City",
               active: true,
             },
             {
@@ -42,9 +42,9 @@ const Resume = () => {
               company: "NDD TECH, Sta.Rosa, Laguna",
             },
             {
-              date: "2020 - 2021",
+              date: "2024-2025",
               title: "WORDPRESS DEVELOPER",
-              company: "",
+              company: "Freelance",
             },
           ].map((item, idx) => (
             <Box

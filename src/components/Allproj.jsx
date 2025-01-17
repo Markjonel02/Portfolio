@@ -17,6 +17,8 @@ import freelance from "../assets/images/Freelance.png";
 import ltd from "../assets/images/Love to dream.png";
 import library from "../assets/images/library.png";
 import ndd from "../assets/images/ndd.png";
+import mamas from "../assets/images/mamas.png";
+import wonderhome from "../assets/images/wonderhome.png";
 // BlogCard Component
 const BlogCard = ({ post }) => {
   return (
@@ -120,14 +122,7 @@ const AllProj = () => {
       links: "https://strix-virid.vercel.app/",
       comments: "No Comments",
     },
-    {
-      category: "WORDPRESS",
-      date: "May 10, 2024",
-      title: "Love to dream",
-      image: ltd,
-      links: "",
-      comments: "No Comments",
-    },
+
     {
       category: "WEB",
       date: "May 10, 2024",
@@ -142,6 +137,30 @@ const AllProj = () => {
       title: "NDDTECH",
       image: ndd,
       links: "https://example.com/ndd",
+      comments: "No Comments",
+    },
+    {
+      category: "WORDPRESS",
+      date: "May 10, 2024",
+      title: "Love to dream",
+      image: ltd,
+      links: "",
+      comments: "No Comments",
+    },
+    {
+      category: "WORDPRESS",
+      date: "May 10, 2024",
+      title: "MAMAS & PAPAS",
+      image: mamas,
+      links: "https://mamasandpapas.ph/",
+      comments: "No Comments",
+    },
+    {
+      category: "WORDPRESS",
+      date: "May 10, 2024",
+      title: "WONDERHOME PH",
+      image: wonderhome,
+      links: "https://wonderhomenaturals.com/",
       comments: "No Comments",
     },
   ];
