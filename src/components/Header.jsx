@@ -77,7 +77,8 @@ const Header = () => {
             }}
             fontWeight="900"
             zIndex={2}
-            color="hoverColor"
+            bgGradient="linear(to-r, purple.700,purple.500,purple.300)"
+            bgClip="text"
           >
             I am Mark
           </Text>
@@ -92,7 +93,7 @@ const Header = () => {
             fontWeight="bold"
             lineHeight="1.1"
             mt={2}
-            bgGradient="linear(to-r, purple.500, purple.700)"
+            bgGradient="linear(to-r, purple.300, purple.500,purple.700,purple.800)"
             bgClip="text"
             zIndex={2}
           >

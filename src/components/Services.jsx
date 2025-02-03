@@ -43,7 +43,7 @@ const Services = () => {
           fontWeight="bold"
           lineHeight="1.2"
           mt={2}
-          bgGradient="linear(to-r, #b18af9, #4b288b, #352063, #1f143d)"
+          bgGradient="linear(to-r, #b18af9, #b18af9, hoverColor, purple.700, purple.800)"
           bgClip="text"
           id="services"
         >
