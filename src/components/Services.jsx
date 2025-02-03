@@ -6,114 +6,104 @@ const services = [
     id: 1,
     title: "Web Development",
     description:
-      "Building dynamic and interactive web applications using modern technologies like React, typescript, or Vue.js, Php, Django, Html5, Tailwind Css, Bootstrap, Chakra ui.",
+      "Building dynamic and interactive web applications using modern technologies like React, TypeScript, Vue.js, PHP, Django, HTML5, Tailwind CSS, Bootstrap, and Chakra UI.",
   },
   {
     id: 2,
     title: "Responsive Design",
     description:
-      "Ensuring that websites are fully functional and visually appealing on all devices, including desktops, tablets, and smartphones",
+      "Ensuring that websites are fully functional and visually appealing on all devices, including desktops, tablets, and smartphones.",
   },
   {
     id: 3,
-    title: "Maintenance and  Support",
+    title: "Maintenance and Support",
     description:
       "Providing ongoing website maintenance, updates, and technical support to ensure optimal performance and security.",
   },
   {
     id: 4,
-    title: "E-commerce ",
+    title: "E-commerce Solutions",
     description:
       "Setting up and customizing WooCommerce stores, including product listings, payment gateways, and inventory management.",
   },
 ];
 
 const Services = () => {
-  const [activeServiceId, setActiveServiceId] = useState(1); // Set the initial active service to 1
+  const [activeServiceId, setActiveServiceId] = useState(null); // Default to no active service
 
   const handleToggle = (id) => {
     setActiveServiceId(activeServiceId === id ? null : id); // Toggle active state
   };
 
   return (
-    <Box textAlign="center" mt={20} mb={20}>
+    <Box textAlign="center" mt={20} mb={20} px={{ base: 4, md: 10 }}>
       <Box className="title">
         <Text
-          fontSize={{
-            base: "5xl",
-            sm: "2xl",
-            md: "3xl",
-            lg: "4xl",
-            xl: "5xl",
-          }}
+          fontSize={{ base: "3xl", sm: "4xl", md: "5xl" }}
           fontWeight="bold"
-          lineHeight="1.1"
+          lineHeight="1.2"
           mt={2}
-          bgGradient="linear(to-r, #b18af9, #b18af9, #4b288b, #352063, #1f143d)"
-          bgClip="text" // Clip the background gradient to the text
-          zIndex={2}
+          bgGradient="linear(to-r, #b18af9, #4b288b, #352063, #1f143d)"
+          bgClip="text"
           id="services"
         >
           My Quality Services
         </Text>
-        <Text fontSize="lg" mt={4} color="gray.600">
+        <Text fontSize={{ base: "md", md: "lg" }} mt={4} color="gray.600">
           I offer a wide range of services to help you achieve your goals.
         </Text>
-        <VStack
-          spacing={5}
-          align="stretch"
-          maxW="100%"
-          mx="auto"
-          mt={10}
-          marginInline={{ base: "10", md: "20" }}
-        >
+
+        <VStack spacing={6} align="stretch" maxW="100%" mx="auto" mt={10}>
           {services.map((service) => (
             <Box
               key={service.id}
               onClick={() => handleToggle(service.id)}
               cursor="pointer"
-              bg={activeServiceId === service.id ? "purple.800" : "gray.50"} // Dark purple when active, gray otherwise
-              color={activeServiceId === service.id ? "white" : "purple.700"} // Change text color when active
-              p={8}
-              borderBottom="2px solid"
+              bg={activeServiceId === service.id ? "purple.800" : "gray.50"}
+              color={activeServiceId === service.id ? "white" : "purple.700"}
+              p={{ base: 6, md: 8 }}
+              borderRadius="lg"
+              border="1px solid"
               borderColor="gray.200"
-              transition="background-color 0.3s ease"
+              transition="background-color 0.3s ease, transform 0.2s"
               _hover={{
                 bg:
-                  activeServiceId === service.id ? "purple.700" : "purple.100", // Different hover effect for active state
+                  activeServiceId === service.id ? "purple.700" : "purple.100",
+                transform: "scale(1.02)",
               }}
             >
               <Flex
-                direction={{ base: "column", md: "row" }}
+                direction={{ base: "column", sm: "row" }}
                 align="center"
                 justify="space-between"
+                gap={{ base: 4, sm: 8 }}
               >
                 <Flex
                   align="center"
-                  mb={{ base: 3, md: 0 }}
                   flexShrink={0}
-                  minW={{ base: "100%", md: "30%" }}
+                  minW={{ base: "100%", sm: "40%" }}
+                  direction={{ base: "column", sm: "row" }}
+                  textAlign={{ base: "center", sm: "left" }}
                 >
-                  <Text fontSize="2xl" fontWeight="bold" mr={3}>
+                  <Text fontSize="2xl" fontWeight="bold" mr={{ sm: 3 }}>
                     {service.id < 10 ? `0${service.id}` : service.id}
                   </Text>
                   <Text
-                    fontSize="2xl"
+                    fontSize={{ base: "xl", md: "2xl" }}
                     fontWeight="bold"
-                    wordBreak="1"
-                    width="300px"
+                    maxW={{ base: "100%", sm: "300px" }}
                   >
                     {service.title}
                   </Text>
                 </Flex>
+
                 <Text
-                  fontSize="lg"
+                  fontSize={{ base: "sm", md: "lg" }}
                   flex={1}
                   color={
                     activeServiceId === service.id ? "white" : "purple.700"
-                  } // Change description color when active
+                  }
                   textAlign="left"
-                  whiteSpace="normal"
                 >
                   {service.description}
                 </Text>

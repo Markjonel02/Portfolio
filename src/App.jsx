@@ -8,25 +8,13 @@ import AnimNav from "./components/Navigation";
 import Resume from "./components/Resume";
 import SkillsSection from "./components/Skills";
 import Contact from "./components/Contact";
+import ScrollTop from "./components/ScrollTop";
+
 /* import Aos from "aos"; */
 
 const MotionBox = motion(Box);
-import { useEffect } from "react";
 
 const App = () => {
-  useEffect(() => {
-    /* 
-    Aos.init({
-      duration: 1000, 
-      once: true, 
-    });
-
- 
-    return () => {
-      Aos.refresh();
-    }; */
-  }, []);
-
   return (
     <>
       <header>
@@ -69,6 +57,7 @@ const App = () => {
         <Box mt="auto" data-aos="fade-up">
           <Contact />
         </Box>
+        <ScrollTop />
       </Box>
 
       <footer></footer>

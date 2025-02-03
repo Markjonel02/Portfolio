@@ -25,7 +25,14 @@ export default function AnimNav() {
   const isDesktop = useBreakpointValue({ base: false, lg: false, xl: true });
   const navbarRef = useRef(null);
   const [hasScrolled, setHasScrolled] = useState(false);
-
+ const scrollToSection = (e, sectionId) => {
+   e.preventDefault(); // Prevent default link behavior
+   const element = document.getElementById(sectionId);
+   if (element) {
+     element.scrollIntoView({ behavior: "smooth", block: "start" });
+     onClose(); // Close drawer when a link is clicked
+   }
+ };
   // Scroll event to check when reaching 300px
   useEffect(() => {
     const handleScroll = () => {
@@ -128,6 +135,7 @@ export default function AnimNav() {
                   >
                     <Link
                       href={`#${text.toLowerCase()}`}
+                      onClick={(e) => scrollToSection(e, text.toLowerCase())}
                       fontSize={["sm", "md", "lg"]}
                       fontWeight={500}
                       color="purple.700"

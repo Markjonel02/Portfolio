@@ -14,17 +14,26 @@ import {
   DrawerHeader,
   DrawerBody,
   Link,
-  Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo from "../assets/images/LOGO.svg";
+
 export default function ResponsiveNavbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isDesktop = useBreakpointValue({ base: false, lg: false, xl: true });
 
+  // Smooth scroll function
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault(); // Prevent default link behavior
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      onClose(); // Close drawer when a link is clicked
+    }
+  };
+
   return (
     <Box
-      // Adjust padding for smaller, medium, and large screens
       py={6}
       color="white"
       bgGradient="linear(to-r, #ffffff 70%, purple.50 100%)"
@@ -33,9 +42,9 @@ export default function ResponsiveNavbar() {
         h={16}
         alignItems="center"
         justifyContent="space-between"
-        maxW="1440px" // Constrain width for ultra-wide screens
+        maxW="1440px"
         mx="auto"
-        px={[4, 8, 12]} // Adjust padding on the x-axis for responsiveness
+        px={[4, 8, 12]}
       >
         {/* Left Side: Logo and Email */}
         <Flex align="center">
@@ -46,7 +55,7 @@ export default function ResponsiveNavbar() {
             fontWeight="500"
             fontFamily="sora"
             color="purple.700"
-            display={{ base: "none", md: "inline", lg: "inline", xl: "inline" }} // Visible only on large screens and above
+            display={{ base: "none", md: "inline", lg: "inline", xl: "inline" }}
             mr={16}
             textDecoration="none"
             _hover={{ textDecoration: "none" }}
@@ -61,29 +70,10 @@ export default function ResponsiveNavbar() {
             <HStack spacing={[4, 6, 8]} as="nav">
               {["Services", "Works", "Resume", "Skills", "Contact"].map(
                 (text) => (
-                  <Box
-                    key={text}
-                    position="relative"
-                    _hover={{
-                      "&:after": {
-                        transform: "scaleX(1)",
-                      },
-                    }}
-                    _after={{
-                      content: '""',
-                      position: "absolute",
-                      width: "100%",
-                      height: "2px",
-                      bottom: "-2px",
-                      left: 0,
-                      backgroundColor: "#6c63ff",
-                      transform: "scaleX(0)",
-                      transformOrigin: "left",
-                      transition: "transform 0.3s ease",
-                    }}
-                  >
+                  <Box key={text} position="relative">
                     <Link
                       href={`#${text.toLowerCase()}`}
+                      onClick={(e) => scrollToSection(e, text.toLowerCase())} // Smooth scroll on click
                       fontSize={["sm", "md", "lg"]}
                       fontWeight={500}
                       color="purple.700"
@@ -98,15 +88,15 @@ export default function ResponsiveNavbar() {
             </HStack>
           ) : (
             <IconButton
-              width="60px" // Set a specific width
-              height="60px" // Set a specific height
+              width="60px"
+              height="60px"
               icon={<HamburgerIcon />}
               aria-label="Open Menu"
               onClick={onOpen}
               variant="outline"
               color="#6c63ff"
-              fontSize="2xl" // Adjust the font size for the icon
-              borderRadius="full" // Optional: Make it a circle
+              fontSize="2xl"
+              borderRadius="full"
             />
           )}
 
@@ -117,7 +107,7 @@ export default function ResponsiveNavbar() {
               bgGradient="linear(to-r, #824cedff, #311961ff)"
               color="white"
               borderRadius="full"
-              px={[6, 8, 10]} // Adjust padding for button responsiveness
+              px={[6, 8, 10]}
               py={[4, 6, 8]}
               transition="background 0.8s ease"
               _hover={{
@@ -152,7 +142,7 @@ export default function ResponsiveNavbar() {
                 <Link
                   key={text}
                   href={`#${text.toLowerCase()}`}
-                  onClick={onClose} // Close drawer on link click
+                  onClick={(e) => scrollToSection(e, text.toLowerCase())} // Smooth scroll on click
                   fontSize="lg"
                   color="#6c63ff"
                   textDecoration="none"
@@ -165,7 +155,7 @@ export default function ResponsiveNavbar() {
                 bgGradient="linear(to-r, #824cedff, #311961ff)"
                 color="white"
                 _hover={{ bg: "#6c63ff" }}
-                onClick={onClose} // Close drawer on button click
+                onClick={onClose}
                 w="full"
                 mt={4}
               >

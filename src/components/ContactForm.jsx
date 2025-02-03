@@ -25,6 +25,8 @@ import {
 import { motion } from "framer-motion";
 const MotionBox = motion(Box);
 const ContactForm = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -45,7 +47,6 @@ const ContactForm = () => {
     const { firstName, lastName, email, phone, option, message } = formData;
     return firstName && lastName && email && phone && option && message;
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
@@ -53,6 +54,7 @@ const ContactForm = () => {
       return;
     }
 
+    setIsSubmitted(true);
     const sid = import.meta.env.VITE_SERVICE_ID;
     const tid = import.meta.env.VITE_TEMPLATE_ID;
     const pid = import.meta.env.VITE_PUBLIC_ID;
@@ -61,11 +63,11 @@ const ContactForm = () => {
       to_name: `${formData.firstName} ${formData.lastName}`,
       from_name: "Your Website",
       message: `
-        Option: ${formData.option}\n
-        Message: ${formData.message}\n
-        Email: ${formData.email}\n
-        Phone: ${formData.phone}
-      `,
+      Option: ${formData.option}\n
+      Message: ${formData.message}\n
+      Email: ${formData.email}\n
+      Phone: ${formData.phone}
+    `,
     };
 
     try {
@@ -79,11 +81,15 @@ const ContactForm = () => {
         option: "",
         message: "",
       });
+
       if (firstNameRef.current) {
         firstNameRef.current.focus();
       }
-      setShowSuccess(true); // Show success animation
-      setTimeout(() => setShowSuccess(false), 3000); // Hide animation after 3 seconds
+
+      setShowSuccess(true);
+      window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top smoothly
+
+      setTimeout(() => setShowSuccess(false), 3000);
     } catch (error) {
       console.error("Failed to send email:", error);
       setStatus(
@@ -130,25 +136,26 @@ const ContactForm = () => {
             )}
             {showSuccess && (
               <MotionBox
-                position="absolute" // Use fixed to position it relative to the viewport
-                top="20px" // Position it near the top
-                left="50%" // Center horizontally
-                transform="translateX(-50%)" // Adjust for perfect horizontal centering
-                initial={{ y: -50, opacity: 0 }} // Start slightly above the viewport
-                animate={{ y: 0, opacity: 1 }} // Slide into view
-                exit={{ y: -50, opacity: 0 }} // Slide back up when exiting
+                position="fixed" // Keep it at the top of the viewport
+                top="50px"
+                left="45%"
+                transform="translateX(-50%)"
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -50, opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                borderRadius="lg" // Round the corners
-                shadow="lg" // Add shadow for floating effect
-                p={4} // Add padding
-                zIndex={10} // Ensure it appears above other elements
+                borderRadius="lg"
+                shadow="lg"
+                p={4}
+                zIndex={1000} // Ensure it appears on top of everything
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
+                bg="white"
               >
-                <Icon as={FaCheckCircle} color="green.500" boxSize={8} />
-                <Text fontSize="lg" color="green.500" ml={3}>
-                  message was sent successfully!
+                <Icon as={FaCheckCircle} color="purple.500" boxSize={8} />
+                <Text fontSize="lg" color="purple.500" ml={3}>
+                  Your message was sent successfully!
                 </Text>
               </MotionBox>
             )}
@@ -249,6 +256,7 @@ const ContactForm = () => {
               marginTop="20px"
               bgGradient="linear(to-r, #824cedff,rgb(39, 39, 41))"
               color="white"
+              onClick={handleSubmit}
               borderRadius="full"
               px={[4, 4, 10]}
               py={[4, 4, 8]}
@@ -258,7 +266,7 @@ const ContactForm = () => {
                 transitionDuration: "0.8s",
               }}
             >
-              Send a message
+              {isSubmitted ? "Submitting..." : "Send a message"}
             </Button>
           </form>
         </Box>

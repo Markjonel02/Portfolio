@@ -188,7 +188,14 @@ const Header = () => {
             src={Mark}
             alt="Mark"
             mt={8}
-            boxSize={{ base: "350px", md: "300px", lg: "400px", xl: "450px" }} // Adjust the size dynamically
+            mb={{ base: 10, md: 0 }} // Adds bottom margin only on smaller screens
+            boxSize={{
+              base: "280px",
+              sm: "320px",
+              md: "300px",
+              lg: "400px",
+              xl: "450px",
+            }} // Adjusts size dynamically
             ml={{ base: 0, md: "60px" }}
             objectFit="cover"
             boxShadow="inset 0 0 10px purple.700"

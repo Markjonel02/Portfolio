@@ -8,7 +8,6 @@ export default function StatsSection() {
     { value: "2", label: "Years of Experience" },
     { value: "50+", label: "Project Completed" },
     { value: "5", label: "Happy Clients" },
-  
   ];
 
   return (
@@ -20,7 +19,7 @@ export default function StatsSection() {
       bgGradient="linear(to-r, white 70%, purple.50 100%)"
     >
       {stats.map((stat, index) => (
-        <Box key={index} textAlign="center" m={4}>
+        <Box key={index} textAlign="center" mt={20}>
           <Text fontSize={fontSize} fontWeight="bold" color="purple.500">
             {stat.value}
           </Text>
