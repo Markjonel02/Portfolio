@@ -117,7 +117,13 @@ const ContactForm = () => {
           marginTop={20}
           position="relative"
         >
-          <Heading as="h2" fontSize={45} mb={4} color="purple.700">
+          <Heading
+            as="h2"
+            fontSize={45}
+            mb={4}
+            bgGradient="linear(to-r, purple.300, purple.500,purple.700,purple.800)"
+            bgClip="text"
+          >
             Let’s work together!
           </Heading>
           <Text mb={6} color="gray.600">
