@@ -40,7 +40,12 @@ const SkillsSection = () => {
         >
           My Skills
         </Text>
-        <Text fontSize="md" color="gray.600" fontWeight={400}>
+        <Text
+          fontSize="md"
+          color="gray.600"
+          fontWeight={400}
+          textAlign="center"
+        >
           Here are some of the technologies I've worked with
         </Text>
       </Box>
