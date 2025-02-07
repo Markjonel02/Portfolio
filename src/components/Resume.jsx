@@ -103,12 +103,12 @@ const Resume = () => {
             {
               date: "2020-2024",
               title: "BS INFORMATION TECHNOLOGY",
-              place: "URS Binangonan",
+              place: "University of Rizal System, Binangonan",
             },
             {
               date: "2018-2020",
               title: "INFORMATION TECHNOLOGY",
-              place: "AMA SHS",
+              place: "AMA Computer Learning Centre SHS",
             },
             {
               date: "2014-2018",

@@ -55,6 +55,8 @@ const ContactForm = () => {
     }
 
     setIsSubmitted(true);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setIsSubmitted(false);
     const sid = import.meta.env.VITE_SERVICE_ID;
     const tid = import.meta.env.VITE_TEMPLATE_ID;
     const pid = import.meta.env.VITE_PUBLIC_ID;
@@ -72,7 +74,10 @@ const ContactForm = () => {
 
     try {
       await emailjs.send(sid, tid, emailParams, pid);
-      setStatus("Your message has been sent successfully!");
+      setTimeout(
+        () => setStatus("Your message has been sent successfully!"),
+        1000
+      );
       setFormData({
         firstName: "",
         lastName: "",
@@ -266,6 +271,7 @@ const ContactForm = () => {
               borderRadius="full"
               px={[4, 4, 10]}
               py={[4, 4, 8]}
+              isDisabled={isSubmitted}
               transition="background 0.8s ease"
               _hover={{
                 bgGradient: "linear(to-l, #824cedff, #311961ff)",
