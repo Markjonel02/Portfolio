@@ -25,14 +25,14 @@ export default function AnimNav() {
   const isDesktop = useBreakpointValue({ base: false, lg: false, xl: true });
   const navbarRef = useRef(null);
   const [hasScrolled, setHasScrolled] = useState(false);
- const scrollToSection = (e, sectionId) => {
-   e.preventDefault(); // Prevent default link behavior
-   const element = document.getElementById(sectionId);
-   if (element) {
-     element.scrollIntoView({ behavior: "smooth", block: "start" });
-     onClose(); // Close drawer when a link is clicked
-   }
- };
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault(); // Prevent default link behavior
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      onClose(); // Close drawer when a link is clicked
+    }
+  };
   // Scroll event to check when reaching 300px
   useEffect(() => {
     const handleScroll = () => {
@@ -220,6 +220,8 @@ export default function AnimNav() {
                 onClick={onClose}
                 w="full"
                 mt={4}
+                as="a"
+                href="tel:09260447220"
               >
                 Hire me!
               </Button>

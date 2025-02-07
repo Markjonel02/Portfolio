@@ -158,6 +158,8 @@ export default function ResponsiveNavbar() {
                 onClick={onClose}
                 w="full"
                 mt={4}
+                as="a"
+                href="tel:09260447220"
               >
                 Hire me!
               </Button>
