@@ -112,8 +112,8 @@ const Resume = () => {
             },
             {
               date: "2014-2018",
-              title: "WEB DESIGN COURSE",
-              place: "MISMNHS",
+              title: "MANUEL I. SANTOS",
+              place: "MISMNHS", 
             },
           ].map((item, idx) => (
             <Box
