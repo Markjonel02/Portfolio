@@ -15,6 +15,7 @@ import sweetpaw from "../assets/images/sweetpaw.png";
 import freelance from "../assets/images/Freelance.png";
 import library from "../assets/images/library.png";
 import ndd from "../assets/images/ndd.png";
+import tlous from "../assets/images/Last of us 2.png";
 // BlogCard Component
 const BlogCard = ({ post }) => {
   return (
@@ -103,6 +104,14 @@ const Web = () => {
       date: "May 10, 2024",
       title: "Sweetpaw",
       image: sweetpaw,
+      comments: "No Comments",
+    },
+    {
+      category: "WEB",
+      date: "May 10, 2024",
+      title: "The last of us",
+      image: tlous,
+      links: "https://the-last-of-us-njqd.vercel.app/",
       comments: "No Comments",
     },
     {

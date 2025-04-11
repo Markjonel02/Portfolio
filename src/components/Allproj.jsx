@@ -20,6 +20,7 @@ import ndd from "../assets/images/ndd.png";
 import mamas from "../assets/images/mamas.png";
 import wonderhome from "../assets/images/wonderhome.png";
 import Bsi from "../assets/images/Bullseye.png";
+import tlous from "../assets/images/Last of us 2.png";
 // BlogCard Component
 const BlogCard = ({ post }) => {
   return (
@@ -113,6 +114,14 @@ const AllProj = () => {
       title: "Sweetpaw",
       image: sweetpaw,
       links: "https://sweetpaw.netlify.app/",
+      comments: "No Comments",
+    },
+    {
+      category: "WEB",
+      date: "May 10, 2024",
+      title: "The Last of US 2",
+      image: tlous,
+      links: "https://the-last-of-us-njqd.vercel.app/",
       comments: "No Comments",
     },
     {
