@@ -12,7 +12,7 @@ import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
 import ltd from "../assets/images/Love to dream.png";
 import mamas from "../assets/images/mamas.png";
 import wonderhome from "../assets/images/wonderhome.png";
-
+import Bsi from "../assets/images/Bullseye.png";
 // BlogCard Component
 const BlogCard = ({ post }) => {
   return (
@@ -85,6 +85,7 @@ const AllProj = () => {
       date: "May 10, 2024",
       title: "Love to dream",
       image: ltd,
+      links: "https://lovetodream.ph/",
       comments: "No Comments",
     },
     {
@@ -101,6 +102,14 @@ const AllProj = () => {
       title: "WONDERHOME PH",
       image: wonderhome,
       links: "https://wonderhomenaturals.com/",
+      comments: "No Comments",
+    },
+    {
+      category: "WORDPRESS",
+      date: "May 10, 2024",
+      title: "Bullseye Solutions Inc.",
+      image: Bsi,
+      links: "https://bullseyeph.com/",
       comments: "No Comments",
     },
   ];
