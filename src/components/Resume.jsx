@@ -108,12 +108,12 @@ const Resume = () => {
             {
               date: "2018-2020",
               title: "INFORMATION TECHNOLOGY",
-              place: "AMA Computer Learning Centre SHS",
+              place: "AMA Computer Learning Center SHS",
             },
             {
               date: "2014-2018",
               title: "MANUEL I. SANTOS",
-              place: "MISMNHS", 
+              place: "MISMNHS",
             },
           ].map((item, idx) => (
             <Box
