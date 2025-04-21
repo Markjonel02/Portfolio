@@ -111,7 +111,7 @@ const Web = () => {
       date: "May 10, 2024",
       title: "The last of us",
       image: tlous,
-      links: "https://the-last-of-us-njqd.vercel.app/",
+      links: "https://the-last-of-us-5n1j.vercel.app/",
       comments: "No Comments",
     },
     {

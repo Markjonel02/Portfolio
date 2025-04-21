@@ -121,7 +121,7 @@ const AllProj = () => {
       date: "May 10, 2024",
       title: "The Last of US 2",
       image: tlous,
-      links: "https://the-last-of-us-njqd.vercel.app/",
+      links: "https://the-last-of-us-5n1j.vercel.app/",
       comments: "No Comments",
     },
     {
