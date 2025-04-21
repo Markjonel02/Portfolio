@@ -1,4 +1,4 @@
-import React, { lazy, Suspense,memo } from "react";
+import React, { lazy, Suspense } from "react";
 import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import ScrollTop from "./components/ScrollTop";
