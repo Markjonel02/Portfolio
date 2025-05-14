@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Grid,
@@ -9,12 +10,12 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
-import ltd from "../assets/images/Love to dream.png";
-import mamas from "../assets/images/mamas.png";
-import wonderhome from "../assets/images/wonderhome.png";
-import Bsi from "../assets/images/Bullseye.png";
+import { posts } from "../data/Allproject";
+
 // BlogCard Component
+
 const BlogCard = ({ post }) => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <Box
       position="relative"
@@ -23,7 +24,13 @@ const BlogCard = ({ post }) => {
       transition="transform 0.3s"
       _hover={{ transform: "scale(1.02)" }}
     >
-      <Box position="relative" paddingTop="75%">
+      <Box
+        position="relative"
+        paddingTop="75%"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Image */}
         <Image
           src={post.image}
           alt={post.title}
@@ -34,6 +41,8 @@ const BlogCard = ({ post }) => {
           h="100%"
           objectFit="cover"
         />
+
+        {/* Badge */}
         <Badge
           position="absolute"
           top="4"
@@ -48,6 +57,8 @@ const BlogCard = ({ post }) => {
         >
           {post.category}
         </Badge>
+
+        {/* Fade-Up Box */}
         <Box
           position="absolute"
           bottom="4"
@@ -57,6 +68,9 @@ const BlogCard = ({ post }) => {
           color="white"
           p="4"
           borderRadius="xl"
+          opacity={isHovered ? 1 : 0} // Show on hover
+          transform={isHovered ? "translateY(0px)" : "translateY(50px)"} // Start below image
+          transition="opacity 0.5s ease-in-out, transform 0.5s ease-in-out" // Smooth animation
         >
           <Flex gap="4" mb="2" fontSize="sm">
             <Flex align="center" gap="2">
@@ -69,50 +83,19 @@ const BlogCard = ({ post }) => {
             </Flex>
           </Flex>
           <Text fontSize={["md", "lg", "xl"]} fontWeight="bold">
-            <a href="">{post.title}</a>
+            <a href={post.links} target="_blank" rel="noopener noreferrer">
+              {post.title}
+            </a>
           </Text>
         </Box>
       </Box>
     </Box>
   );
 };
-const AllProj = () => {
-  const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
 
-  const posts = [
-    {
-      category: "WORDPRESS",
-      date: "May 10, 2024",
-      title: "Love to dream",
-      image: ltd,
-      links: "https://lovetodream.ph/",
-      comments: "No Comments",
-    },
-    {
-      category: "WORDPRESS",
-      date: "May 10, 2024",
-      title: "MAMAS & PAPAS",
-      image: mamas,
-      links: "https://mamasandpapas.ph/",
-      comments: "No Comments",
-    },
-    {
-      category: "WORDPRESS",
-      date: "May 10, 2024",
-      title: "WONDERHOME PH",
-      image: wonderhome,
-      links: "https://wonderhomenaturals.com/",
-      comments: "No Comments",
-    },
-    {
-      category: "WORDPRESS",
-      date: "May 10, 2024",
-      title: "Bullseye Solutions Inc.",
-      image: Bsi,
-      links: "https://bullseyeph.com/",
-      comments: "No Comments",
-    },
-  ];
+// AllProj Component
+const Wordpress = () => {
+  const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
 
   return (
     <Grid
@@ -123,11 +106,13 @@ const AllProj = () => {
       maxW="1200px"
       className="proj"
     >
-      {posts.map((post, index) => (
-        <BlogCard key={index} post={post} />
-      ))}
+      {posts
+        .filter((post) => post.category.toUpperCase() === "WORDPRESS")
+        .map((post, index) => (
+          <BlogCard key={index} post={post} />
+        ))}
     </Grid>
   );
 };
 
-export default AllProj;
+export default Wordpress;

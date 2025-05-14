@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import {
   Box,
   Grid,
@@ -10,19 +10,12 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
-import pandora from "../assets/images/pandora.png";
-import strix from "../assets/images/strix.png";
-import sweetpaw from "../assets/images/sweetpaw.png";
-import freelance from "../assets/images/Freelance.png";
-import ltd from "../assets/images/Love to dream.png";
-import library from "../assets/images/library.png";
-import ndd from "../assets/images/ndd.png";
-import mamas from "../assets/images/mamas.png";
-import wonderhome from "../assets/images/wonderhome.png";
-import Bsi from "../assets/images/Bullseye.png";
-import tlous from "../assets/images/Last of us 2.png";
+import { posts } from "../data/Allproject";
+
 // BlogCard Component
+
 const BlogCard = ({ post }) => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <Box
       position="relative"
@@ -31,7 +24,13 @@ const BlogCard = ({ post }) => {
       transition="transform 0.3s"
       _hover={{ transform: "scale(1.02)" }}
     >
-      <Box position="relative" paddingTop="75%">
+      <Box
+        position="relative"
+        paddingTop="75%"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Image */}
         <Image
           src={post.image}
           alt={post.title}
@@ -42,6 +41,8 @@ const BlogCard = ({ post }) => {
           h="100%"
           objectFit="cover"
         />
+
+        {/* Badge */}
         <Badge
           position="absolute"
           top="4"
@@ -56,6 +57,8 @@ const BlogCard = ({ post }) => {
         >
           {post.category}
         </Badge>
+
+        {/* Fade-Up Box */}
         <Box
           position="absolute"
           bottom="4"
@@ -65,6 +68,9 @@ const BlogCard = ({ post }) => {
           color="white"
           p="4"
           borderRadius="xl"
+          opacity={isHovered ? 1 : 0} // Show on hover
+          transform={isHovered ? "translateY(0px)" : "translateY(50px)"} // Start below image
+          transition="opacity 0.5s ease-in-out, transform 0.5s ease-in-out" // Smooth animation
         >
           <Flex gap="4" mb="2" fontSize="sm">
             <Flex align="center" gap="2">
@@ -90,98 +96,6 @@ const BlogCard = ({ post }) => {
 // AllProj Component
 const AllProj = () => {
   const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
-
-  const posts = [
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "Pandora",
-      image: pandora,
-      links: "https://padoras-s-treasure.vercel.app/",
-      comments: "No Comments",
-    },
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "Freelance site",
-      image: freelance,
-      links: "https://projecthub-realtimechat.web.app/",
-      comments: "No Comments",
-    },
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "Sweetpaw",
-      image: sweetpaw,
-      links: "https://sweetpaw.netlify.app/",
-      comments: "No Comments",
-    },
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "The Last of US 2",
-      image: tlous,
-      links: "https://the-last-of-us-5n1j.vercel.app/",
-      comments: "No Comments",
-    },
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "Strix",
-      image: strix,
-      links: "https://strix-virid.vercel.app/",
-      comments: "No Comments",
-    },
-
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "Online Library",
-      image: library,
-      links: "",
-      comments: "No Comments",
-    },
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "NDDTECH",
-      image: ndd,
-      links: "https://example.com/ndd",
-      comments: "No Comments",
-    },
-    {
-      category: "WORDPRESS",
-      date: "May 10, 2024",
-      title: "Love to dream",
-      image: ltd,
-      links: "https://lovetodream.ph/",
-      comments: "No Comments",
-    },
-    {
-      category: "WORDPRESS",
-      date: "May 10, 2024",
-      title: "MAMAS & PAPAS",
-      image: mamas,
-      links: "https://mamasandpapas.ph/",
-      comments: "No Comments",
-    },
-    {
-      category: "WORDPRESS",
-      date: "May 10, 2024",
-      title: "WONDERHOME PH",
-      image: wonderhome,
-      links: "https://wonderhomenaturals.com/",
-      comments: "No Comments",
-    },
-    {
-      category: "WORDPRESS",
-      date: "May 10, 2024",
-      title: "Bullseye Solutions Inc.",
-      image: Bsi,
-      links: "https://bullseyeph.com/",
-      comments: "No Comments",
-    },
-  ];
 
   return (
     <Grid

@@ -16,7 +16,7 @@ import {
 } from "react-icons/fa";
 import { useState } from "react";
 
-import Mark from "../assets/images/Mark.png";
+import Mark from "../assets/images/500_RELLOS_MARK_JONEL13092.png";
 import Greet from "../assets/images/Greet.svg";
 import StatsSection from "./StatsSection";
 import pdf from "../assets/pdf/Resume- Mark Jonel Relles.pdf";
@@ -107,8 +107,8 @@ const Header = () => {
             zIndex={2}
           >
             a passionate web developer based in Pasig, Philippines. With a
-            strong background in WordPress and React, I specialize in creating
-            dynamic and responsive websites.
+            strong background in WordPress and React, Node Js, Express js, and
+            Mongodb, I specialize in creating dynamic and responsive websites.
           </Text>
 
           {/* Buttons Section */}
@@ -140,12 +140,17 @@ const Header = () => {
                 position="absolute"
                 zIndex={0}
                 top="5%"
-                left="32%"
+                left="45%"
                 transform="translate(-70%, -50%)"
                 opacity={0.5}
                 animation={`${pulse} 2s infinite`}
               >
-                <img src={Greet} alt="" />
+                <img
+                  src={Greet}
+                  alt=""
+                  width={{ base: "300px", lg: "500px" }}
+                  height="auto"
+                />
               </Box>
             )}
 
@@ -188,14 +193,14 @@ const Header = () => {
             className="parallax-image"
             src={Mark}
             alt="Mark"
-            mt={8}
+            mt={0}
             mb={{ base: 10, md: 0 }} // Adds bottom margin only on smaller screens
             boxSize={{
               base: "280px",
               sm: "320px",
               md: "300px",
               lg: "400px",
-              xl: "450px",
+              xl: "600px",
             }} // Adjusts size dynamically
             ml={{ base: 0, md: "60px" }}
             objectFit="cover"

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Grid,
@@ -9,15 +10,12 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
-import pandora from "../assets/images/pandora.png";
-import strix from "../assets/images/strix.png";
-import sweetpaw from "../assets/images/sweetpaw.png";
-import freelance from "../assets/images/Freelance.png";
-import library from "../assets/images/library.png";
-import ndd from "../assets/images/ndd.png";
-import tlous from "../assets/images/Last of us 2.png";
+import { posts } from "../data/Allproject";
+
 // BlogCard Component
+
 const BlogCard = ({ post }) => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <Box
       position="relative"
@@ -26,7 +24,13 @@ const BlogCard = ({ post }) => {
       transition="transform 0.3s"
       _hover={{ transform: "scale(1.02)" }}
     >
-      <Box position="relative" paddingTop="75%">
+      <Box
+        position="relative"
+        paddingTop="75%"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Image */}
         <Image
           src={post.image}
           alt={post.title}
@@ -37,6 +41,8 @@ const BlogCard = ({ post }) => {
           h="100%"
           objectFit="cover"
         />
+
+        {/* Badge */}
         <Badge
           position="absolute"
           top="4"
@@ -51,6 +57,8 @@ const BlogCard = ({ post }) => {
         >
           {post.category}
         </Badge>
+
+        {/* Fade-Up Box */}
         <Box
           position="absolute"
           bottom="4"
@@ -60,6 +68,9 @@ const BlogCard = ({ post }) => {
           color="white"
           p="4"
           borderRadius="xl"
+          opacity={isHovered ? 1 : 0} // Show on hover
+          transform={isHovered ? "translateY(0px)" : "translateY(50px)"} // Start below image
+          transition="opacity 0.5s ease-in-out, transform 0.5s ease-in-out" // Smooth animation
         >
           <Flex gap="4" mb="2" fontSize="sm">
             <Flex align="center" gap="2">
@@ -72,7 +83,9 @@ const BlogCard = ({ post }) => {
             </Flex>
           </Flex>
           <Text fontSize={["md", "lg", "xl"]} fontWeight="bold">
-            <a href="">{post.title}</a>
+            <a href={post.links} target="_blank" rel="noopener noreferrer">
+              {post.title}
+            </a>
           </Text>
         </Box>
       </Box>
@@ -80,63 +93,9 @@ const BlogCard = ({ post }) => {
   );
 };
 
+// AllProj Component
 const Web = () => {
   const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
-
-  const posts = [
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "Pandora",
-      image: pandora,
-      links: "",
-      comments: "No Comments",
-    },
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "Freelance site",
-      image: freelance,
-      comments: "No Comments",
-    },
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "Sweetpaw",
-      image: sweetpaw,
-      comments: "No Comments",
-    },
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "The last of us",
-      image: tlous,
-      links: "https://the-last-of-us-5n1j.vercel.app/",
-      comments: "No Comments",
-    },
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "Strix",
-      image: strix,
-      comments: "No Comments",
-    },
-
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "Online Library",
-      image: library,
-      comments: "No Comments",
-    },
-    {
-      category: "WEB",
-      date: "May 10, 2024",
-      title: "NDDTECH",
-      image: ndd,
-      comments: "No Comments",
-    },
-  ];
 
   return (
     <Grid
@@ -147,9 +106,11 @@ const Web = () => {
       maxW="1200px"
       className="proj"
     >
-      {posts.map((post, index) => (
-        <BlogCard key={index} post={post} />
-      ))}
+      {posts
+        .filter((post) => post.category.toUpperCase() === "WEB")
+        .map((post, index) => (
+          <BlogCard key={index} post={post} />
+        ))}
     </Grid>
   );
 };
