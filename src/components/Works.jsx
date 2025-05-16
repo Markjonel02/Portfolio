@@ -10,10 +10,10 @@ const Works = () => {
   const [sliderStyle, setSliderStyle] = useState({});
   const navRef = useRef(null);
 
-  const navItems = ["All", "Web", "Wordpress"];
+  const navItems = ["All", "React", "Wordpress"];
   const tabComponents = {
     All: <AllProj />,
-    Web: <Web />,
+    React: <Web />,
     Wordpress: <Wordpress />,
   };
 

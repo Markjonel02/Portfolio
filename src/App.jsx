@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import ScrollTop from "./components/ScrollTop";
-
+import { Outlet, Route, Routes } from "react-router-dom";
 /* Lazy load components */
 const ResponsiveNavbar = lazy(() => import("./components/AnimNav"));
 const Header = lazy(() => import("./components/Header"));
@@ -67,7 +67,6 @@ const App = () => {
           <AnimNav />
           <ResponsiveNavbar />
         </header>
-
         <Box
           as="main"
           display="flex"
