@@ -83,7 +83,7 @@ const BlogCard = ({ post }) => {
             </Flex>
           </Flex>
           <Text fontSize={["md", "lg", "xl"]} fontWeight="bold">
-            <a href={post.links} target="_blank" rel="noopener noreferrer">
+            <a href={post.path} target="_blank" rel="noopener noreferrer">
               {post.title}
             </a>
           </Text>
