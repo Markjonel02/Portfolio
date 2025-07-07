@@ -59,7 +59,7 @@ const PostDetail = () => {
       <Heading as="h1" size="xl" mb={4}>
         {post.title}
       </Heading>
-      <Text mb="6" as="link" fontSize="md" color="purple.500">
+      <Text mb="6" fontSize="md" color="purple.500">
         {post.links}
       </Text>
       <Flex gap="4" mb="6" fontSize="md" color="gray.600" wrap="wrap">
