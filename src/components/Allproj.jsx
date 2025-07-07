@@ -85,7 +85,7 @@ const BlogCard = ({ post }) => {
           </Flex>
           <Text fontSize={["md", "lg", "xl"]} fontWeight="bold">
             {/* Using Link component for routing */}
-            <Link to={post.links}>{post.title}</Link>
+            <Link to={post.path}>{post.title}</Link>
           </Text>
         </Box>
       </Box>

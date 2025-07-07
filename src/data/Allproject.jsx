@@ -10,6 +10,7 @@ import wonderhome from "../assets/images/wonderhome.png";
 import Bsi from "../assets/images/Bullseye.png";
 import tlous from "../assets/images/Last of us 2.png";
 import note from "../assets/images/Note Application1.png";
+
 const websites = (category, date, title, image, links, path, desc) => {
   return { category, date, title, image, links, comments: "No Comments", path };
 };
@@ -66,6 +67,14 @@ export const posts = [
     "/ndd-tech"
   ),
   websites(
+    "WEB",
+    "May 5, 2024",
+    "Note Application",
+    note,
+    "https://nodejs-mongodb-client.onrender.com",
+    "/note-application"
+  ),
+  websites(
     "WORDPRESS",
     "Aug 22, 2024",
     "Love To Dream",
@@ -98,14 +107,6 @@ export const posts = [
     "/bullseye"
   ),
 
-  websites(
-    "WEB",
-    "May 5, 2024",
-    "Note Application",
-    note,
-    "https://nodejs-mongodb-client.onrender.com",
-    "/note-application"
-  ),
   /*
   websites(
     "WEB",
