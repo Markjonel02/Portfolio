@@ -1,3 +1,4 @@
+// BlogCard.jsx (or wherever your BlogCard component is defined)
 import { useState } from "react";
 import {
   Box,
@@ -10,10 +11,10 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
-import { posts } from "../data/Allproject";
+import { posts } from "../data/Allproject"; // Assuming 'posts' data is correctly imported
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 // BlogCard Component
-
 const BlogCard = ({ post }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
@@ -83,9 +84,8 @@ const BlogCard = ({ post }) => {
             </Flex>
           </Flex>
           <Text fontSize={["md", "lg", "xl"]} fontWeight="bold">
-            <a href={post.links} target="_blank" rel="noopener noreferrer">
-              {post.title}
-            </a>
+            {/* Using Link component for routing */}
+            <Link to={post.links}>{post.title}</Link>
           </Text>
         </Box>
       </Box>
