@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
 import { posts } from "../data/Allproject";
-
+import { Link } from "react-router-dom";
 // BlogCard Component
 
 const BlogCard = ({ post }) => {
@@ -83,9 +83,7 @@ const BlogCard = ({ post }) => {
             </Flex>
           </Flex>
           <Text fontSize={["md", "lg", "xl"]} fontWeight="bold">
-            <a href={post.path} target="_blank" rel="noopener noreferrer">
-              {post.title}
-            </a>
+            <Link to={post.path}>{post.title}</Link>
           </Text>
         </Box>
       </Box>

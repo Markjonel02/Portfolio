@@ -11,7 +11,7 @@ import Bsi from "../assets/images/Bullseye.png";
 import tlous from "../assets/images/Last of us 2.png";
 import note from "../assets/images/Note Application1.png";
 
-const websites = (category, date, title, image, links, path, desc, stackS) => {
+const websites = (category, date, title, image, links, path, desc, stacks) => {
   return {
     category,
     date,
@@ -19,9 +19,9 @@ const websites = (category, date, title, image, links, path, desc, stackS) => {
     image,
     links,
     comments: "No Comments",
-    desc,
     path,
-    stacks: stackS || [
+    desc,
+    stacks: stacks || [
       "HTML",
       "CSS",
       "JavaScript",

@@ -142,7 +142,6 @@ const App = () => {
           <Route index element={<HomePage />} />
 
           {/* Dedicated route for the projects listing page */}
-          {/*  <Route path="projects" element={<ProjectsPage />} /> */}
 
           <Route path=":projectId" element={<PostDetail />} />
         </Route>
