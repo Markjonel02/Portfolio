@@ -16,7 +16,7 @@ import { FaWordpress } from "react-icons/fa6"; // Keep import if WordPress skill
 import { FaReact } from "react-icons/fa"; // Keep import if React skill is still in allSkills
 import { BsBootstrapFill } from "react-icons/bs";
 import { BiLogoTailwindCss, BiLogoRedux } from "react-icons/bi";
-import { SiChakraui, SiTypescript } from "react-icons/si";
+import { SiChakraui, SiTypescript, SiPostman, SiVitess } from "react-icons/si";
 import { DiNodejsSmall, DiPython, DiGit, DiPhp, DiNpm } from "react-icons/di";
 import {
   SiMongodb,
@@ -80,12 +80,7 @@ const SkillsSection = () => {
       color: "#319795",
       categories: ["All", "Frontend"],
     },
-    {
-      name: "Redux",
-      icon: BiLogoRedux,
-      color: "purple.500",
-      categories: ["All", "Frontend"],
-    },
+
     {
       name: "Typescript",
       icon: SiTypescript,
@@ -139,6 +134,30 @@ const SkillsSection = () => {
       name: "Npm",
       icon: DiNpm,
       color: "red.500",
+      categories: ["All", "Tools"],
+    },
+    {
+      name: "Css3",
+      icon: TiCss3,
+      color: "#1572B6",
+      categories: ["All", "Tools"],
+    },
+    {
+      name: "Redux",
+      icon: BiLogoRedux,
+      color: "purple.500",
+      categories: ["All", "Tools"],
+    },
+    {
+      name: "Postman",
+      icon: SiPostman,
+      color: "#ff6d38ff",
+      categories: ["All", "Tools"],
+    },
+    {
+      name: "Vite",
+      icon: SiVitess,
+      color: "yellow",
       categories: ["All", "Tools"],
     },
   ];

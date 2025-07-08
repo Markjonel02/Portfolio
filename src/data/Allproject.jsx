@@ -132,7 +132,7 @@ export const posts = [
     "https://nodejs-mongodb-client.onrender.com",
     "/note-application",
     "> Note Application > A web application for managing notes, built with Node.js and MongoDB. It features user authentication, note creation, and a responsive design.",
-    ["Node.js", "MongoDB", "Express"]
+    ["Node.js", "MongoDB", "Express", "react", "vite", "Postman"]
   ),
   websites(
     "WORDPRESS",
