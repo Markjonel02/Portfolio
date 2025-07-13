@@ -23,7 +23,10 @@ import pdf from "../assets/pdf/Resume- Mark Jonel Relles.pdf";
 const Header = () => {
   const socialLinks = [
     { icon: FaFacebook, link: "https://www.facebook.com/Markjonel02" },
-    { icon: FaLinkedin, link: "https://linkedin.com/in/yourprofile" },
+    {
+      icon: FaLinkedin,
+      link: "www.linkedin.com/in/markjonel-relles-66aaa6287",
+    },
     { icon: FaGithub, link: "https://github.com/Markjonel02" },
   ];
   const shrink = useBreakpointValue({
