@@ -48,7 +48,7 @@ const SkillsSection = () => {
       name: "JavaScript",
       icon: RiJavascriptFill,
       color: "#F7DF1E",
-      categories: ["All", "Frontend", "Backend"],
+      categories: ["All", "Frontend"],
     },
     {
       name: "WordPress",
@@ -85,7 +85,7 @@ const SkillsSection = () => {
       name: "Typescript",
       icon: SiTypescript,
       color: "#3178C6",
-      categories: ["All", "Frontend", "Backend"],
+      categories: ["All", "Frontend"],
     },
     {
       name: "Node.js",

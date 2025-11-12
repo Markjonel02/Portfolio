@@ -19,7 +19,7 @@ import { useState } from "react";
 import Mark from "../assets/images/500_RELLOS_MARK_JONEL13092.png";
 import Greet from "../assets/images/Greet.svg";
 import StatsSection from "./StatsSection";
-import pdf from "../assets/pdf/Resume- Mark Jonel Relles.pdf";
+import pdf from "../assets/pdf/MarkRelles.pdf";
 const Header = () => {
   const socialLinks = [
     { icon: FaFacebook, link: "https://www.facebook.com/Markjonel02" },

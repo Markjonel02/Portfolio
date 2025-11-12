@@ -10,7 +10,7 @@ import wonderhome from "../assets/images/wonderhome.png";
 import Bsi from "../assets/images/Bullseye.png";
 import tlous from "../assets/images/Last of us 2.png";
 import note from "../assets/images/Note Application1.png";
-
+import hris from "../assets/images/HRIS.jpg";
 const websites = (category, date, title, image, links, path, desc, stacks) => {
   return {
     category,
@@ -133,6 +133,28 @@ export const posts = [
     "/note-application",
     "> Note Application > A web application for managing notes, built with Node.js and MongoDB. It features user authentication, note creation, and a responsive design.",
     ["Node.js", "MongoDB", "Express", "react", "vite", "Postman"]
+  ),
+  websites(
+    "WEB",
+    "june 5, 2024",
+    "Human Resource Information System",
+    hris,
+    "N/a",
+    "/hris",
+    "> Human Resource Management System (HRMS) is a full-stack web application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) and secured using JWT authentication. Designed for scalability and team collaboration, it streamlines core HR operations including employee management, shift scheduling, announcements, and performance tracking. The system features a modern dashboard with real-time KPIs, role-based access control, and modular components for attendance, internal messaging, and document management. Ideal for startups and growing teams, this HRMS is optimized for GitHub deployment and future PDF export.",
+    [
+      "Node.js",
+      "MongoDB",
+      "Express",
+      "react",
+      "vite",
+      "Postman",
+      "Chakra UI",
+      "JWT",
+      "nodemailer",
+      "pdf-lib",
+      "GitHub",
+    ]
   ),
   websites(
     "WORDPRESS",
