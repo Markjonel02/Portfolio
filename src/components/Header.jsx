@@ -106,16 +106,12 @@ const Header = () => {
             mt={4}
             zIndex={2}
           >
-            I'm a passionate web developer based in Pasig, Philippines, with 2
-            years of hands-on experience building dynamic and responsive web
-            applications. My core expertise lies in the MERN stack — MongoDB,
-            Express.js, React.js, and Node.js — where I specialize in crafting
-            scalable APIs, intuitive user interfaces, and secure authentication
-            flows using JWT. I also bring strong proficiency in WordPress
-            development, enabling me to deliver both custom-coded solutions and
-            CMS-driven websites tailored to client needs. Whether it's
-            e-commerce, dashboards, or automation workflows, I thrive on
-            creating clean, modular systems that are built to scale.
+            I'm a web developer based in Pasig, Philippines with 2 years of
+            experience building dynamic, responsive applications using the MERN
+            stack (MongoDB, Express.js, React.js, Node.js). I specialize in
+            scalable APIs, modern UI/UX, and secure JWT authentication. I also
+            have strong WordPress skills, enabling me to deliver both
+            custom-coded and CMS-driven solutions.
           </Text>
 
           {/* Buttons Section */}
