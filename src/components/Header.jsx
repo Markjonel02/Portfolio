@@ -101,7 +101,7 @@ const Header = () => {
           </Text>
 
           <Text
-            fontSize={{ base: "xl", md: "2xl" }}
+            fontSize={{ base: "sm", md: "1.3em" }}
             color="gray.600"
             mt={4}
             zIndex={2}
