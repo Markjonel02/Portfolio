@@ -172,6 +172,8 @@ export default function AnimNav() {
               px={[6, 8, 10]}
               py={[4, 6, 8]}
               transition="background 0.8s ease"
+              as="a"
+              href="#contact"
               _hover={{
                 bgGradient: "linear(to-l, #824cedff, #311961ff)",
                 transitionDuration: "0.8s",

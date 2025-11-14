@@ -109,6 +109,8 @@ export default function ResponsiveNavbar() {
               borderRadius="full"
               px={[6, 8, 10]}
               py={[4, 6, 8]}
+              as="a"
+              href="#contact"
               transition="background 0.8s ease"
               _hover={{
                 bgGradient: "linear(to-l, #824cedff, #311961ff)",
