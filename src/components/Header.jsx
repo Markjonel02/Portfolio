@@ -133,7 +133,10 @@ const Header = () => {
               fontSize={{ base: "lg", md: "xl" }}
               _hover={{ bg: "purple.500", color: "white" }}
             >
-              <a href={pdf} download="Resume-Relles Markjondel D. ">
+              <a
+                href="/MarkJonelRelles.pdf"
+                download="Resume-Relles Markjondel D. "
+              >
                 Download CV
               </a>
             </Button>
