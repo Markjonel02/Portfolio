@@ -11,6 +11,7 @@ import Bsi from "../assets/images/Bullseye.png";
 import tlous from "../assets/images/Last of us 2.png";
 import note from "../assets/images/Note Application1.png";
 import hris from "../assets/images/HRIS.jpg";
+import Shopfy from "../assets/images/Shopify.png";
 const websites = (category, date, title, image, links, path, desc, stacks) => {
   return {
     category,
@@ -155,6 +156,16 @@ export const posts = [
       "pdf-lib",
       "GitHub",
     ]
+  ),
+  websites(
+    "SHOPIFY",
+    "june 5, 2024",
+    "MaMas and Papas Shopify",
+    Shopfy,
+    "N/a",
+    "/shopify",
+    "> Mamas & Papas Philippines is the local branch of the UK-based baby brand, offering premium strollers, nursery furniture, baby clothing, and accessories for parents in the Philippines. The Shopify site is designed to provide a seamless shopping experience, featuring a user-friendly interface, secure payment options, and responsive design for mobile and desktop users.",
+    ["Shopify", "Liquid", "HTML", "CSS", "JavaScript", "GitHub"]
   ),
   websites(
     "WORDPRESS",

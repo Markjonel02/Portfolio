@@ -3,6 +3,7 @@ import { Box, Button, HStack, Text } from "@chakra-ui/react";
 import AllProj from "./Allproj";
 import Web from "./Web";
 import Wordpress from "./Wordpress";
+import Shopify from "./Shopify";
 // Individual Components for Tabs
 
 const Works = () => {
@@ -10,11 +11,12 @@ const Works = () => {
   const [sliderStyle, setSliderStyle] = useState({});
   const navRef = useRef(null);
 
-  const navItems = ["All", "React", "Wordpress"];
+  const navItems = ["All", "Web", "Wordpress", "Shopify"];
   const tabComponents = {
     All: <AllProj />,
-    React: <Web />,
+    Web: <Web />,
     Wordpress: <Wordpress />,
+    Shopify: <Shopify />,
   };
 
   useEffect(() => {
