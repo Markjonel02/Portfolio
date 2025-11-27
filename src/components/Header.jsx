@@ -123,6 +123,9 @@ const Header = () => {
             alignItems="center"
           >
             <Button
+              as="a"
+              href="/MarkJonelRelles.pdf"
+              download="Resume-RellesMarkJonel"
               variant="outline"
               colorScheme="purple"
               rightIcon={<FaDownload />}
@@ -133,12 +136,7 @@ const Header = () => {
               fontSize={{ base: "lg", md: "xl" }}
               _hover={{ bg: "purple.500", color: "white" }}
             >
-              <a
-                href="/MarkJonelRelles.pdf"
-                download="Resume-Relles Markjondel D. "
-              >
-                Download CV
-              </a>
+              Download CV
             </Button>
 
             {shrink && (
