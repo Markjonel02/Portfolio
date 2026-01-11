@@ -6,14 +6,9 @@ import {
   Icon,
   keyframes,
   useBreakpointValue,
+  Skeleton,
 } from "@chakra-ui/react";
-import {
-  FaFacebook,
-  FaLinkedin,
-  FaDribbble,
-  FaGithub,
-  FaDownload,
-} from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaGithub, FaDownload } from "react-icons/fa";
 import { useState } from "react";
 
 import Mark from "../assets/images/500_RELLOS_MARK_JONEL13092.png";
@@ -35,6 +30,7 @@ const Header = () => {
 
   const [rotate, setRotate] = useState(7);
   const [border, setBorder] = useState("none");
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   // Pulse Keyframe for Animation
   const pulse = keyframes`
@@ -52,8 +48,6 @@ const Header = () => {
     }
   `;
 
-  // GSAP Scroll Effect for Parallax
-
   return (
     <>
       <Box
@@ -61,51 +55,31 @@ const Header = () => {
         alignItems="center"
         height="100vh"
         px={{ base: "4%", md: "6%" }}
-        paddingX={{ base: "4%", md: "6%" }}
         bgGradient="linear(to-r, #ffffff 70%, purple.50 100%)"
         flexDirection={{ base: "column", md: "row" }}
       >
         {/* Left Side Text Content */}
         <Box flex="1" maxW="xl" mb={{ base: "4", md: "0" }}>
           <Text
-            fontSize={{
-              base: "3xl",
-              sm: "3xl",
-              md: "4xl",
-              lg: "5xl",
-              xl: "5xl",
-            }}
+            fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
             fontWeight="900"
-            zIndex={2}
             bgGradient="linear(to-r, purple.700,purple.500,purple.300)"
             bgClip="text"
           >
             I am Mark
           </Text>
           <Text
-            fontSize={{
-              base: "5xl",
-              sm: "5xl",
-              md: "5xl",
-              lg: "6xl",
-              xl: "7xl",
-            }}
+            fontSize={{ base: "5xl", md: "5xl", lg: "6xl", xl: "7xl" }}
             fontWeight="bold"
             lineHeight="1.1"
             mt={2}
             bgGradient="linear(to-r, purple.300, purple.500,purple.700,purple.800)"
             bgClip="text"
-            zIndex={2}
           >
             Web Developer
           </Text>
 
-          <Text
-            fontSize={{ base: "sm", md: "1.2em" }}
-            color="gray.600"
-            mt={4}
-            zIndex={2}
-          >
+          <Text fontSize={{ base: "sm", md: "1.2em" }} color="gray.600" mt={4}>
             I'm a web developer based in Pasig, Philippines with 2 years of
             experience building dynamic, responsive applications using the MERN
             stack (MongoDB, Express.js, React.js, Node.js). I specialize in
@@ -149,12 +123,7 @@ const Header = () => {
                 opacity={0.5}
                 animation={`${pulse} 2s infinite`}
               >
-                <img
-                  src={Greet}
-                  alt=""
-                  width={{ base: "300px", lg: "500px" }}
-                  height="auto"
-                />
+                <img src={Greet} alt="" width="400px" height="auto" />
               </Box>
             )}
 
@@ -182,30 +151,49 @@ const Header = () => {
           </Box>
         </Box>
 
-        {/* Right Side Image with Parallax Effect */}
+        {/* Right Side Image with Skeleton */}
         <Box
           flex="1"
           display="flex"
           justifyContent="center"
           alignItems="center"
           px={{ base: 4, md: 0 }}
-          order={{ base: 2, md: 1 }} // Image moves to the bottom for smaller screens
-          data-aos="fade-left"
-          data-aos-durations="300ms"
+          order={{ base: 2, md: 1 }}
         >
+          {!imgLoaded && (
+            <Skeleton
+              height={{
+                base: "280px",
+                sm: "320px",
+                md: "300px",
+                lg: "400px",
+                xl: "600px",
+              }}
+              width={{
+                base: "280px",
+                sm: "320px",
+                md: "300px",
+                lg: "400px",
+                xl: "600px",
+              }}
+              borderRadius="20px"
+              startColor="purple.100"
+              endColor="purple.300"
+            />
+          )}
           <Image
             className="parallax-image"
             src={Mark}
             alt="Mark"
-            mt={0}
-            mb={{ base: 10, md: 0 }} // Adds bottom margin only on smaller screens
+            onLoad={() => setImgLoaded(true)}
+            display={imgLoaded ? "block" : "none"}
             boxSize={{
               base: "280px",
               sm: "320px",
               md: "300px",
               lg: "400px",
               xl: "600px",
-            }} // Adjusts size dynamically
+            }}
             ml={{ base: 0, md: "60px" }}
             objectFit="cover"
             boxShadow="inset 0 0 10px purple.700"

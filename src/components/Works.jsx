@@ -1,14 +1,22 @@
 import { useState, useEffect, useRef } from "react";
-import { Box, Button, HStack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  HStack,
+  Text,
+  Skeleton,
+  Grid,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import AllProj from "./Allproj";
 import Web from "./Web";
 import Wordpress from "./Wordpress";
 import Shopify from "./Shopify";
-// Individual Components for Tabs
 
 const Works = () => {
   const [activeTab, setActiveTab] = useState("All");
   const [sliderStyle, setSliderStyle] = useState({});
+  const [loading, setLoading] = useState(false); // 🔹 track loading state
   const navRef = useRef(null);
 
   const navItems = ["All", "Web", "Wordpress", "Shopify"];
@@ -40,6 +48,18 @@ const Works = () => {
       });
     }
   };
+
+  // 🔹 Handle tab change with skeleton delay
+  const handleTabChange = (tab) => {
+    setLoading(true);
+    setActiveTab(tab);
+    setTimeout(() => {
+      setLoading(false);
+    }, 800); // skeleton shows for 0.8s
+  };
+
+  // 🔹 Responsive columns (force 4 on desktop)
+  const columns = useBreakpointValue({ base: 1, sm: 2, md: 3, lg: 4 }) || 1;
 
   return (
     <Box
@@ -99,7 +119,7 @@ const Works = () => {
             <Button
               key={item}
               id={`tab-${item}`}
-              onClick={() => setActiveTab(item)}
+              onClick={() => handleTabChange(item)}
               variant="ghost"
               size="sm"
               px="4"
@@ -122,7 +142,27 @@ const Works = () => {
 
       {/* Dynamic Component Rendering */}
       <Box mt="8" width="100%" p="4" bg="purple.100" borderRadius="md">
-        {tabComponents[activeTab]}
+        {loading ? (
+          <Grid
+            templateColumns={`repeat(${columns}, 1fr)`}
+            gap={6}
+            p={6}
+            mx="auto"
+            maxW="1200px"
+          >
+            {Array.from({ length: 4 }).map((_, i) => (
+              <Skeleton
+                key={i}
+                height="250px"
+                borderRadius="xl"
+                startColor="purple.100"
+                endColor="purple.300"
+              />
+            ))}
+          </Grid>
+        ) : (
+          tabComponents[activeTab]
+        )}
       </Box>
     </Box>
   );

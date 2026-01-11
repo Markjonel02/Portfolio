@@ -8,14 +8,17 @@ import {
   Flex,
   Icon,
   useBreakpointValue,
+  Skeleton,
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
 import { posts } from "../data/Allproject";
 import { Link } from "react-router-dom";
-// BlogCard Component
 
+// 🔹 BlogCard Component
 const BlogCard = ({ post }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(false);
+
   return (
     <Box
       position="relative"
@@ -30,7 +33,21 @@ const BlogCard = ({ post }) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Image */}
+        {/* Skeleton while image loads */}
+        {!imgLoaded && (
+          <Skeleton
+            position="absolute"
+            top="0"
+            left="0"
+            w="100%"
+            h="100%"
+            borderRadius="xl"
+            startColor="purple.100"
+            endColor="purple.300"
+          />
+        )}
+
+        {/* Lazy-loaded Image */}
         <Image
           src={post.image}
           alt={post.title}
@@ -40,6 +57,9 @@ const BlogCard = ({ post }) => {
           w="100%"
           h="100%"
           objectFit="cover"
+          loading="lazy" // 🔹 enables browser lazy loading
+          onLoad={() => setImgLoaded(true)}
+          display={imgLoaded ? "block" : "none"}
         />
 
         {/* Badge */}
@@ -68,9 +88,9 @@ const BlogCard = ({ post }) => {
           color="white"
           p="4"
           borderRadius="xl"
-          opacity={isHovered ? 1 : 0} // Show on hover
-          transform={isHovered ? "translateY(0px)" : "translateY(50px)"} // Start below image
-          transition="opacity 0.5s ease-in-out, transform 0.5s ease-in-out" // Smooth animation
+          opacity={isHovered ? 1 : 0}
+          transform={isHovered ? "translateY(0px)" : "translateY(50px)"}
+          transition="opacity 0.5s ease-in-out, transform 0.5s ease-in-out"
         >
           <Flex gap="4" mb="2" fontSize="sm">
             <Flex align="center" gap="2">
@@ -91,7 +111,7 @@ const BlogCard = ({ post }) => {
   );
 };
 
-// AllProj Component
+// 🔹 Web Component
 const Web = () => {
   const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
 
