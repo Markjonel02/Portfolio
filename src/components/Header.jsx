@@ -109,6 +109,15 @@ const Header = () => {
               py={{ base: "20px", md: "25px" }}
               fontSize={{ base: "lg", md: "xl" }}
               _hover={{ bg: "purple.500", color: "white" }}
+              onClick={() => {
+                // 🔹 Fire GA4 custom event
+                if (typeof gtag === "function") {
+                  gtag("event", "download_cv", {
+                    event_category: "engagement",
+                    event_label: "Resume Download",
+                  });
+                }
+              }}
             >
               Download CV
             </Button>
