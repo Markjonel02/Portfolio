@@ -141,7 +141,7 @@ const Works = () => {
       </Box>
 
       {/* Dynamic Component Rendering */}
-      <Box mt="8" width="100%" p="4" bg="purple.100" borderRadius="md">
+      <Box mt="8" width="100%" p="4" bg="purple.50" borderRadius="md">
         {loading ? (
           <Grid
             templateColumns={`repeat(${columns}, 1fr)`}

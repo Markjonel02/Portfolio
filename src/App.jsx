@@ -14,7 +14,7 @@ const Resume = lazy(() => import("./components/Resume"));
 const SkillsSection = lazy(() => import("./components/Skills"));
 const Contact = lazy(() => import("./components/Contact"));
 const ScrollTop = lazy(() => import("./components/ScrollTop"));
-
+const DarkModeToggle = lazy(() => import("./components/DarkModeToggle"));
 /* Lazy load project components */
 /*  const ProjectsPage = lazy(() => import("./components/ProjectsPage")); // New component for banner + AllProj */
 const PostDetail = lazy(() => import("./components/PostDetail")); // Re-used for individual project details
@@ -84,6 +84,7 @@ const MainLayout = () => {
       </Box>
       <Suspense fallback={null}>
         {" "}
+      
         {/* Fallback for ScrollTop if it's lazy loaded */}
         <ScrollTop />
       </Suspense>
