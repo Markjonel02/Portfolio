@@ -18,7 +18,10 @@ import StatsSection from "./StatsSection";
 const Header = () => {
   const socialLinks = [
     { icon: FaFacebook, link: "https://www.facebook.com/Markjonel02" },
-    { icon: FaLinkedin, link: "https://linkedin.com/in/yourprofile" },
+    {
+      icon: FaLinkedin,
+      link: "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile",
+    },
     { icon: FaGithub, link: "https://github.com/Markjonel02" },
   ];
   const shrink = useBreakpointValue({
