@@ -9,7 +9,7 @@ import {
   Skeleton,
 } from "@chakra-ui/react";
 import { FaFacebook, FaLinkedin, FaGithub, FaDownload } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Mark from "../assets/images/500_RELLOS_MARK_JONEL13092.png";
 import Greet from "../assets/images/Greet.svg";
@@ -34,6 +34,18 @@ const Header = () => {
   const [rotate, setRotate] = useState(7);
   const [border, setBorder] = useState("none");
   const [imgLoaded, setImgLoaded] = useState(false);
+
+  // 🔹 Track viewport height
+  const [isSmallHeight, setIsSmallHeight] = useState(false);
+
+  useEffect(() => {
+    const checkHeight = () => {
+      setIsSmallHeight(window.innerHeight <= 390);
+    };
+    checkHeight();
+    window.addEventListener("resize", checkHeight);
+    return () => window.removeEventListener("resize", checkHeight);
+  }, []);
 
   // Pulse Keyframe for Animation
   const pulse = keyframes`
@@ -113,7 +125,6 @@ const Header = () => {
               fontSize={{ base: "lg", md: "xl" }}
               _hover={{ bg: "purple.500", color: "white" }}
               onClick={() => {
-                // 🔹 Fire GA4 custom event
                 if (typeof gtag === "function") {
                   gtag("event", "download_cv", {
                     event_category: "engagement",
@@ -200,7 +211,7 @@ const Header = () => {
             onLoad={() => setImgLoaded(true)}
             display={imgLoaded ? "block" : "none"}
             boxSize={{
-              base: "280px",
+              base: "250px",
               sm: "320px",
               md: "300px",
               lg: "400px",
@@ -227,7 +238,9 @@ const Header = () => {
           />
         </Box>
       </Box>
-      <Box>
+
+      {/* Stats Section with conditional margin */}
+      <Box mt={isSmallHeight ? 40 : 20}>
         <StatsSection />
       </Box>
     </>
