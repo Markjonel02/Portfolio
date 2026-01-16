@@ -84,7 +84,6 @@ const MainLayout = () => {
       </Box>
       <Suspense fallback={null}>
         {" "}
-      
         {/* Fallback for ScrollTop if it's lazy loaded */}
         <ScrollTop />
       </Suspense>

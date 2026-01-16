@@ -12,6 +12,8 @@ import tlous from "../assets/images/Last of us 2.png";
 import note from "../assets/images/Note Application1.png";
 import hris from "../assets/images/HRIS.jpg";
 import Shopfy from "../assets/images/Shopify.png";
+import Thesis from "../assets/images/Thesis.png";
+import safeRoutes from "../assets/images/Saferoutes.png";
 const websites = (category, date, title, image, links, path, desc, stacks) => {
   return {
     category,
@@ -127,6 +129,26 @@ export const posts = [
   ),
   websites(
     "WEB",
+    "May 9, 2023",
+    "WEB BASED SALES AND INVENTORY SYSTEM FOR DUNMARK TILESHOP",
+    Thesis,
+    "N/a",
+    "/dunmarkTileShop",
+    "The capstone project was all about the Web based Sales and Inventory System for Dunmark Tileshop located at Binangonan, Rizal, during the academic year 2022-2023.The system was developed using HTML, CSS, JavaScript, Python, and the MySQL database. The Sales and Inventory System has two user types, Administrator and Cashier, that have different access rights to the system. The administrator has privileges to access all parts of the system, such as viewing the dashboard, creating new users, editing customer profiles, creating transactions, adding stock or new products, viewing return products, and printing all reports, while the cashier has limited privileges to access parts of the system.",
+    [
+      "Html5",
+      "Css",
+      "Javascript",
+      "Jquery",
+      "Phyton",
+      "Django",
+      "MySQl",
+      "Chart Js",
+      "Github",
+    ]
+  ),
+  websites(
+    "WEB",
     "May 5, 2024",
     "Note Application",
     note,
@@ -155,6 +177,24 @@ export const posts = [
       "nodemailer",
       "pdf-lib",
       "GitHub",
+    ]
+  ),
+  websites(
+    "WEB",
+    "Dec 1, 2025",
+    "SafeNavigations",
+    safeRoutes,
+    "N/a",
+    "/saferoute",
+    "RapidRescue is a web-based emergency response system developed using the MERN stack. It enables civilians to report emergencies in real time, share their location, and receive faster assistance from responders through a centralized dashboard.",
+    [
+      "React",
+      "Chakra UI",
+      "Vercel",
+      "Swiper.js",
+      "ChartJs",
+      "Gsap",
+      "Framermotion",
     ]
   ),
   websites(

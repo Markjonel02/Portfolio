@@ -25,14 +25,7 @@ export default function AnimNav() {
   const isDesktop = useBreakpointValue({ base: false, lg: false, xl: true });
   const navbarRef = useRef(null);
   const [hasScrolled, setHasScrolled] = useState(false);
-  const scrollToSection = (e, sectionId) => {
-    e.preventDefault(); // Prevent default link behavior
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-      onClose(); // Close drawer when a link is clicked
-    }
-  };
+
   // Scroll event to check when reaching 300px
   useEffect(() => {
     const handleScroll = () => {
@@ -134,8 +127,7 @@ export default function AnimNav() {
                     }}
                   >
                     <Link
-                      href={`#${text.toLowerCase()}`}
-                      onClick={(e) => scrollToSection(e, text.toLowerCase())}
+                      href={`/#${text.toLowerCase()}`} // ✅ navigate to /#id
                       fontSize={["sm", "md", "lg"]}
                       fontWeight={500}
                       color="purple.700"
@@ -173,7 +165,7 @@ export default function AnimNav() {
               py={[4, 6, 8]}
               transition="background 0.8s ease"
               as="a"
-              href="#contact"
+              href="/#contact" // ✅ goes to /#contact
               _hover={{
                 bgGradient: "linear(to-l, #824cedff, #311961ff)",
                 transitionDuration: "0.8s",
@@ -205,7 +197,7 @@ export default function AnimNav() {
               ].map((text) => (
                 <Link
                   key={text}
-                  href={`#${text.toLowerCase()}`}
+                  href={`/#${text.toLowerCase()}`} // ✅ navigate to /#id
                   onClick={onClose}
                   fontSize="lg"
                   color="#6c63ff"
