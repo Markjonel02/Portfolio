@@ -11,7 +11,7 @@ import {
   SimpleGrid, // Import SimpleGrid for related projects
 } from "@chakra-ui/react";
 import { Link, useParams } from "react-router-dom";
-import { posts } from "../data/Allproject"; // Assuming 'posts' data is correctly imported
+import { posts } from "../data/Allproject"; 
 
 const PostDetail = () => {
   const { projectId } = useParams(); // Get the projectId from the URL

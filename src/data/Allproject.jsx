@@ -325,7 +325,7 @@ export const posts = [
     "image-import&export plugin for WordPress",
     iamgeimporter,
     "https://github.com/Markjonel02/customer-reviews-wordpress.git",
-    "/wordpress-customer-reviews",
+    "/wordpress-image-import-export",
     "Export and import large image libraries in ZIP format.",
     [
       "WordPress",

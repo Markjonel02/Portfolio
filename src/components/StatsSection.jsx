@@ -56,7 +56,7 @@ export default function StatsSection() {
             color="purple.500"
           />
           <Text fontSize={labelSize} color="purple.500">
-            {stat.label}
+            {stat.label} 
           </Text>
         </Box>
       ))}
