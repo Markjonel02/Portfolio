@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Grid,
@@ -10,12 +10,13 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
-import { posts } from "../data/Allproject";
+import { buildPosts } from "../data/Allproject";
 import { Link } from "react-router-dom";
-// BlogCard Component
 
+// BlogCard Component
 const BlogCard = ({ post }) => {
   const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Box
       position="relative"
@@ -68,9 +69,9 @@ const BlogCard = ({ post }) => {
           color="white"
           p="4"
           borderRadius="xl"
-          opacity={isHovered ? 1 : 0} // Show on hover
-          transform={isHovered ? "translateY(0px)" : "translateY(50px)"} // Start below image
-          transition="opacity 0.5s ease-in-out, transform 0.5s ease-in-out" // Smooth animation
+          opacity={isHovered ? 1 : 0}
+          transform={isHovered ? "translateY(0px)" : "translateY(50px)"}
+          transition="opacity 0.5s ease-in-out, transform 0.5s ease-in-out"
         >
           <Flex gap="4" mb="2" fontSize="sm">
             <Flex align="center" gap="2">
@@ -91,9 +92,18 @@ const BlogCard = ({ post }) => {
   );
 };
 
-// AllProj Component
-const Wordpress = () => {
+// Shopify Component
+const Shopify = () => {
+  const [posts, setPosts] = useState([]);
   const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const builtPosts = await buildPosts();
+      setPosts(builtPosts);
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <Grid
@@ -113,4 +123,4 @@ const Wordpress = () => {
   );
 };
 
-export default Wordpress;
+export default Shopify;

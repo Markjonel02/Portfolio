@@ -48,7 +48,7 @@ export default function StatsSection() {
       bgGradient="linear(to-r, white 70%, purple.50 100%)"
     >
       {stats.map((stat, index) => (
-        <Box key={index} textAlign="center" >
+        <Box key={index} textAlign="center">
           <Counter
             target={stat.value}
             suffix={stat.suffix || ""}
@@ -56,7 +56,7 @@ export default function StatsSection() {
             color="purple.500"
           />
           <Text fontSize={labelSize} color="purple.500">
-            {stat.label} 
+            {stat.label}
           </Text>
         </Box>
       ))}

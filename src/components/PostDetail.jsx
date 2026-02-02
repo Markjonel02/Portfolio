@@ -1,5 +1,5 @@
 // components/PostDetail.jsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Image,
@@ -7,17 +7,37 @@ import {
   Flex,
   Heading,
   Link as ChakraLink,
-  Badge, // Import Badge for stacks
-  SimpleGrid, // Import SimpleGrid for related projects
+  Badge,
+  SimpleGrid,
+  Spinner,
 } from "@chakra-ui/react";
 import { Link, useParams } from "react-router-dom";
-import { posts } from "../data/Allproject"; 
+import { buildPosts } from "../data/Allproject";
 
 const PostDetail = () => {
   const { projectId } = useParams(); // Get the projectId from the URL
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const data = await buildPosts();
+      setPosts(data);
+      setLoading(false);
+    };
+    fetchPosts();
+  }, []);
+
+  if (loading) {
+    return (
+      <Box p={6} textAlign="center" pt="100px">
+        <Spinner size="xl" color="purple.500" />
+        <Text mt={4}>Loading project details...</Text>
+      </Box>
+    );
+  }
 
   // Find the post based on its 'path' property
-  // We need to match the full path, e.g., '/pandora' == '/pandora'
   const post = posts.find((p) => p.path === `/${projectId}`);
 
   if (!post) {
@@ -27,7 +47,7 @@ const PostDetail = () => {
         <Text mt={4}>The project you're looking for doesn't exist.</Text>
         <ChakraLink
           as={Link}
-          to="/" // Link back to the /projects page
+          to="/"
           color="purple.500"
           mt={4}
           display="inline-block"
@@ -41,20 +61,21 @@ const PostDetail = () => {
   // Filter out the current project for the "More Projects" section
   const moreProjects = posts
     .filter((p) => p.path !== `/${projectId}`)
-    .slice(0, 12); // Get up to 4 other projects
+    .slice(0, 12);
 
   return (
     <Box p={6} maxW="1200px" mx="auto" pt="80px" pb="80px">
       <ChakraLink
         as={Link}
-        to="/" // Link back to the main projects listing
+        to="/"
         color="purple.500"
-        mb={5} // Increased margin top for separation
+        mb={5}
         display="inline-block"
         fontWeight="bold"
       >
         &larr; Back to all projects
       </ChakraLink>
+
       <Image src={post.image} alt={post.title} borderRadius="lg" mb={6} />
       <Heading as="h1" size="xl" mb={4}>
         {post.title}
@@ -62,6 +83,7 @@ const PostDetail = () => {
       <Text mb="6" fontSize="md" color="purple.500">
         {post.links}
       </Text>
+
       <Flex gap="4" mb="6" fontSize="md" color="gray.600" wrap="wrap">
         <Flex align="center" gap="2">
           <Text>{post.date}</Text>
@@ -72,12 +94,14 @@ const PostDetail = () => {
       </Flex>
 
       {/* Project Description */}
-      <Text fontSize="lg" lineHeight="tall" color="gray.700" mb={6}>
+      <Box mb={6}>
         <Text fontWeight="bold" mb={2}>
           Project Overview:
         </Text>
-        {post.desc}
-      </Text>
+        <Text fontSize="lg" lineHeight="tall" color="gray.700">
+          {post.desc}
+        </Text>
+      </Box>
 
       {/* Technologies Used (Stacks) */}
       {post.stacks && post.stacks.length > 0 && (
@@ -103,9 +127,9 @@ const PostDetail = () => {
       )}
 
       {/* Live Site Link */}
-      {post.externalUrl && (
+      {post.links && post.links !== "N/a" && (
         <ChakraLink
-          href={post.externalUrl}
+          href={post.links}
           isExternal
           color="white"
           bg="purple.600"
@@ -116,7 +140,7 @@ const PostDetail = () => {
           _hover={{ bg: "purple.700", textDecoration: "none" }}
           transition="background-color 0.3s ease"
           display="inline-block"
-          mb={8} // Margin below the button
+          mb={8}
         >
           Visit Live Site &rarr;
         </ChakraLink>
@@ -129,16 +153,14 @@ const PostDetail = () => {
             More Projects
           </Heading>
           <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
-            {" "}
-            {/* 4 columns on desktop */}
             {moreProjects.map((proj, index) => (
               <Box
                 key={index}
                 borderRadius="lg"
                 overflow="hidden"
                 boxShadow="md"
-                _hover={{ boxShadow: "lg", transform: "scale(1.05)" }} // Scale effect
-                transition="all 0.3s ease-in-out" // Smooth transition
+                _hover={{ boxShadow: "lg", transform: "scale(1.05)" }}
+                transition="all 0.3s ease-in-out"
                 cursor="pointer"
               >
                 <ChakraLink
@@ -170,9 +192,9 @@ const PostDetail = () => {
 
       <ChakraLink
         as={Link}
-        to="/" // Link back to the main projects listing
+        to="/"
         color="purple.500"
-        mt={12} // Increased margin top for separation
+        mt={12}
         display="inline-block"
         fontWeight="bold"
       >

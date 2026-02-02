@@ -1,5 +1,5 @@
-// BlogCard.jsx (or wherever your BlogCard component is defined)
-import { useState } from "react";
+// BlogCard.jsx (or AllProj.jsx if combined)
+import { useState, useEffect } from "react";
 import {
   Box,
   Grid,
@@ -11,12 +11,13 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
-import { posts } from "../data/Allproject"; // Assuming 'posts' data is correctly imported
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { buildPosts } from "../data/Allproject"; // async function that builds posts
+import { Link } from "react-router-dom";
 
 // BlogCard Component
 const BlogCard = ({ post }) => {
   const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Box
       position="relative"
@@ -69,9 +70,9 @@ const BlogCard = ({ post }) => {
           color="white"
           p="4"
           borderRadius="xl"
-          opacity={isHovered ? 1 : 0} // Show on hover
-          transform={isHovered ? "translateY(0px)" : "translateY(50px)"} // Start below image
-          transition="opacity 0.5s ease-in-out, transform 0.5s ease-in-out" // Smooth animation
+          opacity={isHovered ? 1 : 0}
+          transform={isHovered ? "translateY(0px)" : "translateY(50px)"}
+          transition="opacity 0.5s ease-in-out, transform 0.5s ease-in-out"
         >
           <Flex gap="4" mb="2" fontSize="sm">
             <Flex align="center" gap="2">
@@ -84,7 +85,6 @@ const BlogCard = ({ post }) => {
             </Flex>
           </Flex>
           <Text fontSize={["md", "lg", "xl"]} fontWeight="bold">
-            {/* Using Link component for routing */}
             <Link to={post.path}>{post.title}</Link>
           </Text>
         </Box>
@@ -95,7 +95,16 @@ const BlogCard = ({ post }) => {
 
 // AllProj Component
 const AllProj = () => {
+  const [posts, setPosts] = useState([]);
   const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const data = await buildPosts(); // call async builder
+      setPosts(data);
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <Grid

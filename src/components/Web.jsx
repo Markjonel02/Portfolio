@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Grid,
@@ -11,7 +11,7 @@ import {
   Skeleton,
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
-import { posts } from "../data/Allproject";
+import { buildPosts } from "../data/Allproject"; // ✅ use async builder
 import { Link } from "react-router-dom";
 
 // 🔹 BlogCard Component
@@ -57,7 +57,7 @@ const BlogCard = ({ post }) => {
           w="100%"
           h="100%"
           objectFit="cover"
-          loading="lazy" // 🔹 enables browser lazy loading
+          loading="lazy"
           onLoad={() => setImgLoaded(true)}
           display={imgLoaded ? "block" : "none"}
         />
@@ -113,7 +113,16 @@ const BlogCard = ({ post }) => {
 
 // 🔹 Web Component
 const Web = () => {
+  const [posts, setPosts] = useState([]);
   const columns = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const data = await buildPosts(); // ✅ fetch posts dynamically
+      setPosts(data);
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <Grid
