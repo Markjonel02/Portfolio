@@ -11,7 +11,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
-import { buildPosts } from "../data/Allproject"; // async function that builds posts
+import { buildPosts } from "../data/Allproject";
 import { Link } from "react-router-dom";
 
 // BlogCard Component
@@ -100,8 +100,12 @@ const AllProj = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const data = await buildPosts(); // call async builder
-      setPosts(data);
+      try {
+        const data = await buildPosts(); // ✅ fetch posts with images.json
+        setPosts(data);
+      } catch (error) {
+        console.error("Error loading posts:", error.message);
+      }
     };
     fetchPosts();
   }, []);

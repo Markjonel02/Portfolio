@@ -10,7 +10,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
-import { buildPosts } from "../data/Allproject";
+import { buildPosts } from "../data/Allproject"; // ✅ make sure this points to posts.js
 import { Link } from "react-router-dom";
 
 // BlogCard Component
@@ -99,8 +99,12 @@ const Shopify = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const builtPosts = await buildPosts();
-      setPosts(builtPosts);
+      try {
+        const builtPosts = await buildPosts(); // ✅ fetch posts with images.json
+        setPosts(builtPosts);
+      } catch (error) {
+        console.error("Error loading Shopify posts:", error.message);
+      }
     };
     fetchPosts();
   }, []);
