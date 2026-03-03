@@ -10,8 +10,8 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
-import { buildPosts } from "../data/Allproject"; // ✅ make sure this points to posts.js
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // ✅ Added import
+import { buildPosts } from "../data/Allproject";
 
 // BlogCard Component
 const BlogCard = ({ post }) => {

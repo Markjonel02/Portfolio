@@ -195,7 +195,7 @@ export const buildPosts = async () => {
         "Jun 5, 2024",
         "Mamas & Papas Shopify",
         images.shopify,
-        "N/a",
+        "https://mamasandpapas.ph/",
         "/shopify",
         "Shopify ecommerce site...",
         ["Shopify", "Liquid", "HTML", "CSS", "JavaScript", "GitHub"],
