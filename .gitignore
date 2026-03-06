@@ -12,6 +12,7 @@ dist
 .env
 dist-ssr
 *.local
+src/assets/images/ #ignore all images in this folder, as they are fetched from an API and not stored locally 
 
 # Editor directories and files
 .vscode/*
@@ -23,4 +24,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
 
