@@ -337,7 +337,7 @@ export const buildPosts = async () => {
         "March 18, 2026",
         "anchanto-price-fix-plugin",
         images.anchanto,
-        " https://github.com/Markjonel02/anchanto-price-fix-plugin",
+        "https://github.com/Markjonel02/anchanto-price-fix-plugin",
         "/anchanto-price-fix-plugin",
         "Anchanto Price Fix is a lightweight yet powerful WordPress plugin designed to help you fix pricing issues with ease. Built with clean code and a developer-friendly architecture, it integrates seamlessly into any WordPress theme while giving you full control over design and functionality.",
         [
