@@ -18,7 +18,6 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
-import Logo from "../assets/images/LOGO.svg";
 
 export default function AnimNav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -83,7 +82,7 @@ export default function AnimNav() {
       >
         {/* Left Side: Logo and Email */}
         <Flex align="center">
-          <img src={Logo} alt="Logo" />
+          <img src="/assets/LOGO.svg" alt="Logo" />
           <Link
             href="mailto:markjoneldaeprelles@gmail.com"
             fontSize={["sm", "md", "lg"]}
@@ -137,7 +136,7 @@ export default function AnimNav() {
                       {text}
                     </Link>
                   </Box>
-                )
+                ),
               )}
             </HStack>
           ) : (
