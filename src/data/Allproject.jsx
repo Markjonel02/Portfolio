@@ -1,13 +1,23 @@
 // src/data/posts.js
 import { getImages } from "../api/ImageService";
 
+const ASSET_BASE =
+  import.meta.env.VITE_API_URL || "https://portfolio-assests-bay.vercel.app";
+
+const resolveImage = (img) => {
+  if (!img) return undefined;
+  if (img.startsWith("http://") || img.startsWith("https://")) return img;
+  if (img.startsWith("/")) return `${ASSET_BASE}${img}`;
+  return `${ASSET_BASE}/${img}`;
+};
+
 // Helper function to build a post object
 const websites = (category, date, title, image, links, path, desc, stacks) => {
   return {
     category,
     date,
     title,
-    image,
+    image: resolveImage(image),
     links,
     comments: "No Comments",
     path,

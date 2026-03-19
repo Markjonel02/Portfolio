@@ -12,6 +12,16 @@ import {
 } from "@chakra-ui/react";
 import { CalendarIcon, ChatIcon } from "@chakra-ui/icons";
 import { buildPosts } from "../data/Allproject";
+
+const ASSET_BASE =
+  import.meta.env.VITE_API_URL || "https://portfolio-assests-bay.vercel.app";
+
+const ensureAbsolute = (img) => {
+  if (!img) return undefined;
+  if (img.startsWith("http://") || img.startsWith("https://")) return img;
+  if (img.startsWith("/")) return `${ASSET_BASE}${img}`;
+  return `${ASSET_BASE}/${img}`;
+};
 import { Link } from "react-router-dom";
 
 // BlogCard Component
@@ -34,7 +44,7 @@ const BlogCard = ({ post }) => {
       >
         {/* Image */}
         <Image
-          src={post.image}
+          src={ensureAbsolute(post.image)}
           alt={post.title}
           position="absolute"
           top="0"
