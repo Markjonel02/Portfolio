@@ -14,7 +14,7 @@ dist-ssr
 *.local
 
 # ignore all images in this folder, as they are fetched from an API and not stored locally 
-src/assets/images/
+#src/assets/images/
 public/assets/images/
 
 
