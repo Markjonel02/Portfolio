@@ -206,7 +206,7 @@ const Header = () => {
           )}
           <Image
             className="parallax-image"
-            src={Mark}
+            src="/assets/500_RELLOS_MARK_JONEL13092.png"
             alt="Mark"
             onLoad={() => setImgLoaded(true)}
             display={imgLoaded ? "block" : "none"}
