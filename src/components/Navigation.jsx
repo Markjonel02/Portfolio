@@ -47,7 +47,7 @@ export default function ResponsiveNavbar() {
       >
         {/* Left Side: Logo and Email */}
         <Flex align="center">
-          <img src="/assets/LOGO.svg" alt="" />
+          <img src="/assets/LOGO.svg" alt="Logo" />
           <Link
             href="mailto:markjoneldaeprelles@gmail.com"
             fontSize={["sm", "md", "lg"]}
