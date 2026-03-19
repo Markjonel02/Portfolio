@@ -146,7 +146,12 @@ const Header = () => {
                 opacity={0.5}
                 animation={`${pulse} 2s infinite`}
               >
-                <img src={Greet} alt="" width="400px" height="auto" />
+                <img
+                  src="assets/Greet.svg"
+                  alt=""
+                  width="400px"
+                  height="auto"
+                />
               </Box>
             )}
 
