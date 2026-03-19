@@ -12,7 +12,7 @@ import { FaFacebook, FaLinkedin, FaGithub, FaDownload } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 /* import Mark from "../assets/images/500_RELLOS_MARK_JONEL13092.png";
- */ import Greet from "../assets/images/Greet.svg";
+ */
 import StatsSection from "./StatsSection";
 
 const Header = () => {
@@ -147,7 +147,7 @@ const Header = () => {
                 animation={`${pulse} 2s infinite`}
               >
                 <img
-                  src="assets/Greet.svg"
+                  src="/assets/Greet.svg"
                   alt=""
                   width="400px"
                   height="auto"
