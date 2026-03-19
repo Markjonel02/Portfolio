@@ -332,7 +332,7 @@ export const buildPosts = async () => {
           "Swiper.js",
         ],
       ),
-      websites(
+      /*       websites(
         "WORDPRESS",
         "March 18, 2026",
         "anchanto-price-fix-plugin",
@@ -351,7 +351,7 @@ export const buildPosts = async () => {
           "JavaScript",
           "REST API",
         ],
-      ),
+      ), */
       websites(
         "WORDPRESS",
         "Feb 9, 2026",
