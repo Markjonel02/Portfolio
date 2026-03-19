@@ -347,7 +347,7 @@ export const buildPosts = async () => {
           "Swiper.js",
         ],
       ),
-      /*       websites(
+             websites(
         "WORDPRESS",
         "March 18, 2026",
         "anchanto-price-fix-plugin",
@@ -366,7 +366,7 @@ export const buildPosts = async () => {
           "JavaScript",
           "REST API",
         ],
-      ), */
+      ), 
       websites(
         "WORDPRESS",
         "Feb 9, 2026",
@@ -389,7 +389,7 @@ export const buildPosts = async () => {
           "Typescript",
         ],
       ),
-      websites(
+ /*      websites(
         "WORDPRESS",
         "Feb 9, 2026",
         "elegant-slider-plugin",
@@ -410,7 +410,7 @@ export const buildPosts = async () => {
           "Swiper.js",
           "Typescript",
         ],
-      ),
+      ), */
     ];
   } catch (error) {
     console.error("Error building posts:", error.message);
