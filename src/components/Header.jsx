@@ -11,8 +11,8 @@ import {
 import { FaFacebook, FaLinkedin, FaGithub, FaDownload } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
-import Mark from "../assets/images/500_RELLOS_MARK_JONEL13092.png";
-import Greet from "../assets/images/Greet.svg";
+/* import Mark from "../assets/images/500_RELLOS_MARK_JONEL13092.png";
+ */ import Greet from "../assets/images/Greet.svg";
 import StatsSection from "./StatsSection";
 
 const Header = () => {
