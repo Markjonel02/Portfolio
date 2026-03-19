@@ -16,7 +16,6 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import Logo from "../assets/images/LOGO.svg";
 
 export default function ResponsiveNavbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -48,7 +47,7 @@ export default function ResponsiveNavbar() {
       >
         {/* Left Side: Logo and Email */}
         <Flex align="center">
-          <img src={Logo} alt="" />
+          <img src="/assets/LOGO.svg" alt="" />
           <Link
             href="mailto:markjoneldaeprelles@gmail.com"
             fontSize={["sm", "md", "lg"]}
@@ -83,7 +82,7 @@ export default function ResponsiveNavbar() {
                       {text}
                     </Link>
                   </Box>
-                )
+                ),
               )}
             </HStack>
           ) : (
