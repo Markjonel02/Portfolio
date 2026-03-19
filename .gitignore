@@ -15,7 +15,7 @@ dist-ssr
 
 # ignore all images in this folder, as they are fetched from an API and not stored locally 
 src/assets/images/
-#public/assets/images/
+public/assets/images/
 
 
 # Editor directories and files
